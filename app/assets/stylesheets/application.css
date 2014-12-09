@@ -10,7 +10,20 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require animate
+ *= require font-awesome
+ *= require brave/bootstrap.min
+ *= require brave/animate.min
+ *= require brave/settings
+ *= require brave/magnific-popup
+ *= require brave/owl.carousel
+ *= require brave/parallax-slider
+ *= require brave/smart-addons
+ *= require brave/smart-forms
+ *= require brave/smart-forms-ie8
+ *= require brave/style
+ *= require brave/skin-lblue
+ *= require brave/app-site
+ *= require brave/background-image
  *= require_tree .
  *= require_self
  */

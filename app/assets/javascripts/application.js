@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require brave/jquery.magnific-popup.min
+//= require brave/owl.carousel.min
+//= require brave/bootstrap.min
+//= require brave/main
 //= require angular.min
 //= require angular-animate.min
 //= require app
