@@ -22,6 +22,7 @@
  *= require brave/smart-forms-ie8
  *= require brave/style
  *= require brave/skin-lblue
+ *= require brave/style-50
  *= require brave/app-site
  *= require brave/background-image
  *= require_tree .
