@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
-	belongs_to :mentor
+	has_many :mentors
 end
