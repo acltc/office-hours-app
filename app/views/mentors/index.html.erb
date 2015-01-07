@@ -5,8 +5,8 @@
 <div class = "container">
 	<div class="ui-50">
 		<div class = "row">
+			<% @mentors.each do |mentor| %>
 			<div class="col-md-3 col-sm-4 col-xs-12 bor">
-				<% @mentors.each do |mentor| %>
 				<div class="ui-item bg-red">
 					<h4 class="rotate-right"><span><%= mentor.full_name %></span></h4>
 					<%= image_tag "user/1.jpg", class: "img-responsive" %>
@@ -20,9 +20,10 @@
 			            <!-- Twitter Icon -->
 			            <a href="#" class="b-tooltip" title="Twitter"><i class="fa fa-twitter"></i></a> 
 			          </div>
-			         <% end %>
+			         
 				</div>
 			</div>
+			<% end %>
 		</div>
 	</div>
 
