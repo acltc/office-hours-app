@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   devise_for :users
-=======
+
   namespace :api do
     namespace :v1 do
       resources :mentors, only: [:index]
@@ -9,7 +8,7 @@ Rails.application.routes.draw do
       resources :appointments, only: [:index, :create, :update, :show]
     end
   end
->>>>>>> 6942a4a877775167438654fedd93e035cb819f82
+
   root 'pages#sample'
   get 'home' => 'pages#home'
   
