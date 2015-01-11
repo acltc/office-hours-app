@@ -8,6 +8,7 @@
 			<% @mentors.each do |mentor| %>
 			<div class="col-md-3 col-sm-4 col-xs-12 bor">
 				<div class="ui-item bg-red">
+					<a href="/mentors/<%= mentor.id %>"> 
 					<h4 class="rotate-right"><span><%= mentor.full_name %></span></h4>
 					<%= image_tag "#{mentor.photo}", class: "img-responsive" %>
 					 <div class="ui-icons">

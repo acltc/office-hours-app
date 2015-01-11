@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :mentors, only: [:index]
+      resources :mentors, only: [:index, :show]
       resources :categories, only: [:index]
       resources :appointments, only: [:index, :create, :update, :show]
     end

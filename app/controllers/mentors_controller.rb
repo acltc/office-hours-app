@@ -5,7 +5,13 @@ class MentorsController < ApplicationController
 	end
 
 	def show
-		
+		mentor_id = params[:id]
+		@mentors = Mentor.all
+		@mentor = Mentor.find(mentor_id)
+
+		appointment_id = params[:id]
+		@appointments = Appointment.all
+		@appointment = Appointment.find(appointment_id)
 	end
 
 	def new
