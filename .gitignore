@@ -17,5 +17,5 @@
 .DS_Store
 
 
-# Ignore account details of env file (we should uncomment this when we have set SendGrid details)
-# /.env
+# Ignore account details of env file 
+/.env
