@@ -5,9 +5,9 @@ class Api::V1::AppointmentsController < ApplicationController
   end
 
   def show
-    appointment_id = params[:id]
+    mentor_id = params[:mentor_id]
     @appointments = Appointment.all
-    @appointment = Appointment.find(appointment_id)
+    @appointment = Appointment.find(mentor_id)
   end
 
   def create

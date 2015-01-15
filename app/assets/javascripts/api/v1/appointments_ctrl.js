@@ -7,12 +7,17 @@
       $scope.appointments = response.data;
     });
 
+    $http.get("/api/v1/mentors.json").then(function (response) {
+      $scope.mentors = response.data;
+    });
+    
+    // $scope.testphrase = "Hello There"
+
     $scope.selectAppointment = function(appointment){
-      $scope.greeting = "Your drone, " + (appointment.date_start_time) + " will be on their way! You should expect your Ice cream within 30 minutes!";
-      appointment.available = !appointment.available;
-      $scope.appointments = null;
+      $scope.greeting = " Your appointment! , " + (appointment.date_start_time) + " You should expect to spend " + (appointment.duration) + " minutes with your mentor!";
+      // appointment.available = !appointment.available;
+      // $scope.appointments = null;
     };
       window.scope = $scope;
     });
-
 }());
