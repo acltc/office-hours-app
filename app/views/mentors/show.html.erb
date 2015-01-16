@@ -27,10 +27,10 @@
                   <h4>Available Appointments:</h4> 
                   <!-- {{ testphrase}} -->
                   <div ng-repeat="appointment in appointments | filter:{mentor_id: 1}" 
-                  ng-click="selectAppointment(appointment)">
-                    <button type="submit" class="btn btn-default btn-lg" >{{appointment.date_start_time}}<br>{{appointment.duration}} minutes</button>
-                      {{greeting}}
+                  ng-click="selectAppointment(appointment)" >
+                    <button type="submit" class="btn btn-default btn-lg">{{appointment.date_start_time}}<br>{{appointment.duration}} minutes</button>
                   </div>
+                      <h4>{{greeting}}</h4>
             </div>
           </div>
         </div>
