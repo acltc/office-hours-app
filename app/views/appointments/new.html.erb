@@ -1,0 +1,43 @@
+<div ng-app="app">
+  <div ng-controller="appointmentsCtrl">
+
+    <h1>New Appointments</h1>
+
+    <div class="row">
+      <table class="table-inverse">
+        <tr>
+          <th>Name</th>
+          <th>Color(s)</th>
+          <th>Deck Type</th>
+          <th>Format</th>
+        </tr>
+        <tr ng-repeat="deck in decks | filter: { name: nameFilter } | orderBy:name:false">
+          <td><a href="/decks/{{ deck.id }}"><button>{{ deck.name }}</button></a></td>
+          <td>{{ deck.color }}</td>
+          <td>{{ deck.deck_type }}</td>
+          <td>{{ deck.legal_format }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 unit" id="new_deck_form">
+        <div>
+          <label class="deck_form">New Deck Name:* </label><input ng-model="newDeckName">
+        </div>
+        <div>
+          <label class="deck_form">New Deck Color(s): </label><input ng-model="newDeckColors">
+        </div>
+        <div>
+          <label class="deck_form">New Deck Type: </label><input ng-model="newDeckType">
+        </div>
+        <div>
+          <label class="deck_form">New Deck Format: </label><input ng-model="newDeckFormat">
+        </div>
+        <button type="button" class="btn btn-success" ng-click="createDeck(newDeckName, newDeckColors, newDeckType, newDeckFormat)">Create a Deck</button>
+        <div>*required</div>
+      </div>
+    </div>
+
+  </div> <!-- ng-controller -->
+</div> <!-- ng-app -->
