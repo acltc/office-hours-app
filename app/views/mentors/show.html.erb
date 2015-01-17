@@ -25,12 +25,14 @@
                   <a href="#" class="b-tooltip" title="Twitter"><i class="fa fa-twitter"></i></a> 
                 </div>
                   <h4>Available Appointments:</h4> 
+                      <h4><%= link_to 'Back to mentors', mentors_path %></h4>
+                      <h4>{{greeting}}</h4>
                   <!-- {{ testphrase}} -->
-                  <div ng-repeat="appointment in appointments | filter:{mentor_id: 1}" 
+                  <div ng-repeat="appointment in appointments | filter:{mentor_id: 1}"
                   ng-click="selectAppointment(appointment)" >
                     <button type="submit" class="btn btn-default btn-lg">{{appointment.date_start_time}}<br>{{appointment.duration}} minutes</button>
                   </div>
-                      <h4>{{greeting}}</h4>
+                  <!-- <h4>Enter your Name:</h4><input ng-model="Name"> -->
             </div>
           </div>
         </div>
