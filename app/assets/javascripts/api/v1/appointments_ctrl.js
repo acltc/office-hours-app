@@ -7,11 +7,10 @@
       $scope.appointments = response.data;
     });
 
-    $scope.createAppointment = function(newDateStartTime, newDuration, newMentorId) {
+    $scope.createAppointment = function(newDateStartTime, newDuration) {
       var newAppointment = {
         date_start_time: newDateStartTime, 
-        duration: newDuration, 
-        mentor_id: newMentorId
+        duration: newDuration
       };
       $http.post("/api/v1/appointments.json", {appointment: newAppointment}).then(function (response) {
 

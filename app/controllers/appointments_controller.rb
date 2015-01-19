@@ -4,7 +4,13 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = Appointment.create[params(:appointment)]
+    @appointment = Appointment.new[params(:appointment)]
+
+    if @appointment.save
+      redirect_to appointments_path
+    else
+      render 'new'
+    end
   end
 
   private
