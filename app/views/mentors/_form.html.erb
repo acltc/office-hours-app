@@ -1,0 +1,59 @@
+<%= form_for @mentor do |f| %>
+<div class ="row">
+	<div class="col-sm-4">
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">First Name</h3>
+			</div>
+				<div class="panel-body">
+						<%= f.text_field :first_name %>
+				</div>
+		</div>
+
+		<div class="panel">
+			<div class="panel-heading">
+		  	<h3 class="panel-title">Last Name</h3>
+			</div>
+				<div class="panel-body">
+				 	<%= f.text_field :last_name %>
+				</div>
+		</div>	
+
+		<div class="panel">
+			<div class="panel-heading">
+		  	<h3 class="panel-title">Email</h3>
+			</div>
+				<div class="panel-body">
+				 	<%= f.text_field :email %>
+			</div>
+		</div>	
+	</div>
+	<div class="col-sm-4">
+		<div class="panel">
+			<div class="panel-heading">
+		  	<h3 class="panel-title">Bio</h3>
+			</div>
+				<div class="panel-body">
+				 	<%= f.text_area :bio %>
+			</div>
+		</div>
+		<div class="panel">
+			<div class="panel-heading">
+		  	<h3 class="panel-title">Category</h3>
+			</div>
+				<div class="panel-body">
+					<% @categories.each do %>
+						<% |category| %>
+							<%= f.label category.name %>
+							<%= f.radio_button(:category_id, category.name) %>
+					<% end %>
+			</div>
+		</div>
+
+		<div>
+			<%= f.submit "Submit", class: "btn btn-danger" %>
+		</div>
+	</div>
+
+
+<% end %>
