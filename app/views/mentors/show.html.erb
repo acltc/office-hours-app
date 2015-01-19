@@ -24,15 +24,15 @@
                   <!-- Twitter Icon -->
                   <a href="#" class="b-tooltip" title="Twitter"><i class="fa fa-twitter"></i></a> 
                 </div>
-                  <h4>Available Appointments:</h4> 
+                  <h4><%= @mentor.full_name %>'s Available Appointments:</h4> 
                       <h4><%= link_to 'Back to mentors', mentors_path %></h4>
-                      <!-- <h4>{{greeting}}</h4> -->
-                  <!-- {{ testphrase}} -->
-                 <div ng-show="">
-                 <% @appointments.each do |appointment| %>
-                  <button><%= appointment.date_start_time %><br><%= appointment.duration %> minutes<br></button>
-                 <% end %>
-                 </div>
+                      <h4>{{greeting}}</h4>
+                  <!-- {{ testphrase}} -->                
+                 
+                  <div ng-repeat="appointment in appointments" ng-click="selectAppointment(appointment)">
+                  <button>{{appointment.date_start_time}}<br>{{appointment.duration}} minutes<br></button></div>                             
+                 
+                 
                   <!-- <h4>Enter your Name:</h4><input ng-model="Name"> -->
             </div>
           </div>
