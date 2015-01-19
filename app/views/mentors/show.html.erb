@@ -10,7 +10,7 @@
           <div class="col-md-3 col-sm-4 col-xs-12 bor">
             <div class="ui-item bg-red">
               <h4 class="rotate-right"><span><%= @mentor.full_name %></span></h4>
-              <%= image_tag "#{@mentor.photo}", class: "img-responsive" %>
+              <%= image_tag @mentor.photo , class: "img-responsive" %>
               <h4><%= @mentor.bio %></h4>
               <h4><%= @mentor.email %></h4>
 
@@ -29,11 +29,13 @@
                       <h4>{{greeting}}</h4>
                   <!-- {{ testphrase}} -->                
                  
-                  <div ng-repeat="appointment in appointments" ng-click="selectAppointment(appointment)">
-                  <button>{{appointment.date_start_time}}<br>{{appointment.duration}} minutes<br></button></div>                             
+                  <div ng-repeat="appointment in appointments" ng-click="selectAppointment(appointment)" >
+                  
+                  <button class="appointmentButton" style="margin-left: 60px;">{{appointment.date_start_time | date:'medium'}}<br>{{appointment.duration}} minutes<br></button>
+                  </div>                             
+                  <h4>Enter your Information:</h4>
+                 <input type="text" ng-model="text" style="margin-left: 50px;"><h4>Enter Your Full Name:</h4><input type="text2" ng-model="text2" style="margin-left: 50px;"><h4>Enter Your Email Address:</h4>
                  
-                 
-                  <!-- <h4>Enter your Name:</h4><input ng-model="Name"> -->
             </div>
           </div>
         </div>
