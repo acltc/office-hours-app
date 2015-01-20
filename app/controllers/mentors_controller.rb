@@ -10,9 +10,8 @@ class MentorsController < ApplicationController
 		@mentors = Mentor.all
 		@mentor = Mentor.find(mentor_id)
 
-		appointment_id = params[:id]
-		@appointments = Appointment.all
-		@appointment = Appointment.find(appointment_id)
+		@appointments = @mentor.appointments.all
+
 	end
 
 	def new

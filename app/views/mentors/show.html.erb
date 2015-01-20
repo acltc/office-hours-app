@@ -11,7 +11,7 @@
           <%= image_tag "#{@mentor.photo}", class: "img-responsive" %>
           <h4><%= @mentor.bio %></h4>
           <h4><%= @mentor.email %></h4>
-           <div class="ui-icons">
+            <div class="ui-icons">
               <!-- Email Icon -->
               <a href="mailto:"#{mentor.email} class="b-tooltip" title="Email"><i class="fa fa-envelope"></i></a>
               <!-- Phone Icon -->
@@ -21,11 +21,49 @@
               <!-- Twitter Icon -->
               <a href="#" class="b-tooltip" title="Twitter"><i class="fa fa-twitter"></i></a> 
             </div> 
-              <h4><%= @appointment.date_start_time %></h4> 
-              <h4><%= @appointment.duration %> minutes</h4> 
+            
         </div>
       </div>
     </div>
   </div>
+            <div class="row">
+              <div class="col-md-6">
+                <h1>Add Appointments:</h1>
+                <%= form_tag appointments_path do %>
+                  <div>
+                    <%= label_tag 'Date' %>
+                    <%= text_field_tag :date_start_time %>
+                  </div>
+                  <div>
+                    <%= label_tag 'Duration in Minutes' %>
+                    <%= text_field_tag :duration %>
+                  </div>
+                  <%= hidden_field_tag :mentor_id, @mentor.id %>
+                  <div>
+                    <%= submit_tag "Add Appointments" %>
+                  </div>
+                <% end %>
+              </div>
+
+              <div ng-app="app">
+  <div ng-controller="appointmentsCtrl">
+
+    <div class="new_appointment_form">
+      <h1>New Appointments</h1>
+
+      <div class="form_field">
+        <label>Event Date: </label><input ng-model="newDateStartTime">
+      </div>
+      
+      <div class="form_field">
+        <label>Appointments Duration: </label><input ng-model="newDuration">
+      </div>
+
+      <button ng-click="createAppointment(newDateStartTime, newDuration, newMentorName)">Create Appointment</button>
+    </div> <!-- appointment form -->
+
+  </div> <!-- ng-controller -->
+</div> <!-- ng-app -->
+            </div>
 
 </div>
