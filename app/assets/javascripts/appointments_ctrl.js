@@ -3,7 +3,7 @@
 
   angular.module("app").controller("appointmentsCtrl", function($scope, $http){
 
-    $http.get("/api/v1/appointments.json").then(function (response) {
+    $http.get("/api/v1/appointments.json?mentor_id=" + $scope.currentMentorId).then(function (response) {
       $scope.appointments = response.data; 
     });
 
