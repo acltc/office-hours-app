@@ -3,13 +3,17 @@
 
   angular.module("app").controller("appointmentsCtrl", function($scope, $http){
 
-    $http.get("/api/v1/appointments.json?mentor_id=" + $scope.currentMentorId).then(function (response) {
-      $scope.appointments = response.data; 
+$scope.setup = function(mentorId) {
+  $scope.currentMentorId = mentorId;
+
+  $http.get("/api/v1/appointments.json?mentor_id=" + $scope.currentMentorId).then(function (response) {
+$scope.appointments = response.data; 
     });
 
-    $http.get("/api/v1/mentors.json").then(function (response) {
+  $http.get("/api/v1/mentors.json").then(function (response) {
       $scope.mentors = response.data;
     });
+};
 
     $scope.selectAppointment = function(appointment){
       $scope.greeting =  " You are now scheduled. You should expect to spend " + (appointment.duration) + " minutes with your mentor!";
