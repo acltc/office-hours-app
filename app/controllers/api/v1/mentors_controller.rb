@@ -4,8 +4,11 @@ class Api::V1::MentorsController < ApplicationController
     @mentors = Mentor.all
   end
 
-  # def show
-  #   @mentors = Mentor.all
-  #   @mentor = Mentor.find_by params[:id]
-  # end
+  def show
+    
+    appointment_id = params[:id]
+    @mentor = Mentor.find_by(:id => params[:id])
+    @appointments = @mentor.appointments.all
+    @appointment = Appointment.find(appointment_id)
+  end
 end

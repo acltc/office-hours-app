@@ -8,10 +8,10 @@ class MentorsController < ApplicationController
 	def show
 		mentor_id = params[:id]
 		@mentors = Mentor.all
-		@mentor = Mentor.find(mentor_id)
 
 		appointment_id = params[:id]
-		@appointments = Appointment.all
+		@mentor = Mentor.find_by(:id => params[:id])
+		@appointments = @mentor.appointments.all
 		@appointment = Appointment.find(appointment_id)
 	end
 
