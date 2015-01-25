@@ -11,7 +11,7 @@ class MentorsController < ApplicationController
 		@mentor = Mentor.find(mentor_id)
 
 		@appointments = @mentor.appointments.all
-
+		@appointment = Appointment.new
 	end
 
 	def new
@@ -56,5 +56,9 @@ class MentorsController < ApplicationController
 		return params.require(:mentor).permit(:first_name, :last_name, :email, :bio, :photo, :category_id, :commit, :id)
 
 	end
+
+	def appointment_params
+    return params.require(:appointment).permit(:date_start_time, :duration, :mentor_id, :mentee_name, :mentee_email)
+  end
 
 end

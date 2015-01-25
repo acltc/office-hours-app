@@ -10,11 +10,21 @@ class Api::V1::AppointmentsController < ApplicationController
     @appointment = Appointment.find(appointment_id)
   end
 
-  def create
-    
+  def new
+    @appointment = Appointment.new
   end
-  
-  def update
-    
+
+  def create
+    @appointment = Appointment.new(params => [:appointment_params])
+    if @appoinmtnt.save
+    else
+      render json: { errors: @appointments.errors.fullmessages }, status: 422
+    end
+  end
+
+  private
+
+  def appointment_params
+    params.require(:appointment).permit(:date_start_time, :duration, :mentor_id, :mentee_name, :mentee_email)
   end
 end
