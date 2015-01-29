@@ -2,6 +2,9 @@ class Api::V1::MentorsController < ApplicationController
 
   def index
     @mentors = Mentor.all
+    @mentors = Mentor.where(:id => params[:id])
+    if params[:id]
+    end
   end
 
   def show

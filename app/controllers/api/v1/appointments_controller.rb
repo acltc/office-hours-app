@@ -10,7 +10,7 @@ class Api::V1::AppointmentsController < ApplicationController
 
   def show
     @mentors = Mentor.all
-    mentor_id = params[:mentor_id]
+    mentor_id = params[:id]
     @mentor = Mentor.find_by(:id => params[:id])
     @appointments = Appointment.all
     @appointment = Appointment.find(mentor_id)
