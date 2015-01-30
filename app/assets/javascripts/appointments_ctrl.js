@@ -3,6 +3,9 @@
 
   angular.module("app").controller("appointmentsCtrl", function($scope, $http){
 
+// $scope.setupAppointment = function(appointmentId) {
+//   $scope.currentappointmentId = appointmentId;
+
 $scope.setup = function(mentorId) {
   $scope.currentMentorId = mentorId;
 
@@ -14,7 +17,7 @@ console.log(response)
 
   $http.get("/api/v1/mentors.json?id=" + $scope.currentMentorId).then(function (response) {
       $scope.mentor = response.data;
-      console.log(response);
+      // console.log(response);
     });
 };
 
@@ -32,7 +35,7 @@ console.log(response)
         $scope.addEmail = "";
         console.log(addName, addEmail);
       var updatedAppointment = { mentee_name: (addName), mentee_email: (addEmail), available: false };
-      $http.patch('/api/v1/appointments/1.json', {appointment: updatedAppointment}).then(function(response) {
+      $http.patch('/api/v1/appointments/' + (appointment.id) + '.json', {appointment: (updatedAppointment)}).then(function(response) {
           
         }, function (error) {
           $scope.error = error.statusText;

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'pages#sample'
+  root 'mentors#index'
   get 'home' => 'pages#home'
   
   resources :appointments 
