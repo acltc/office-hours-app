@@ -3,9 +3,6 @@
 
   angular.module("app").controller("appointmentsCtrl", function($scope, $http){
 
-// $scope.setupAppointment = function(appointmentId) {
-//   $scope.currentappointmentId = appointmentId;
-
 $scope.setup = function(mentorId) {
   $scope.currentMentorId = mentorId;
 
@@ -23,20 +20,20 @@ console.log(response)
 
     $scope.selectAppointment = function(appointment){
       console.log(appointment);
-      alert("You will be scheduled for " + (appointment.duration) + " minutes with this mentor. Please enter your name and email in the appropriate section and submit your request.");
-      $scope.greeting =  " You are now scheduled. You should expect to spend " + (appointment.duration) + " minutes with your mentor! "; 
+      alert("You will be scheduled for " + (appointment.duration) + " minutes with this mentor. Please enter your first and last name and your email address in the appropriate section and submit your request.");
+      // $scope.greeting =  " You are now scheduled. You should expect to spend " + (appointment.duration) + " minutes with your mentor! "; 
       
-    // $scope.available = !appointment.available;
       $scope.appointments = null;
 
       $scope.enterInfo = function(addName, addEmail){
-        $scope.greetingTwo = "Thank you! ";
+        alert("Thank you! You're appointment is scheduled. If you need to cancel please contact 1871");
+        // $scope.greetingTwo = "Thank you! ";
         $scope.addName = "";
         $scope.addEmail = "";
         console.log(addName, addEmail);
       var updatedAppointment = { mentee_name: (addName), mentee_email: (addEmail), available: false };
       $http.patch('/api/v1/appointments/' + (appointment.id) + '.json', {appointment: (updatedAppointment)}).then(function(response) {
-          
+         
         }, function (error) {
           $scope.error = error.statusText;
         });
