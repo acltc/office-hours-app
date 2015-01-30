@@ -2,6 +2,9 @@ class Api::V1::MentorsController < ApplicationController
 
   def index
     @mentors = Mentor.all
+    @mentors = Mentor.where(:id => params[:id])
+    if params[:id]
+    end
   end
 
   def show
@@ -9,6 +12,6 @@ class Api::V1::MentorsController < ApplicationController
     appointment_id = params[:id]
     @mentor = Mentor.find_by(:id => params[:id])
     @appointments = @mentor.appointments.all
-    @appointment = Appointment.find(appointment_id)
+    @appointment = Appointment.find_by(:id => params[:id])
   end
 end
