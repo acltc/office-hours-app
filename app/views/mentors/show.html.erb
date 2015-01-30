@@ -16,7 +16,7 @@
 
               <div class="ui-icons">
                   <!-- Email Icon -->
-                  <a href="mailto:"#{mentor.email} class="b-tooltip" title="Email"><i class="fa fa-envelope"></i></a>
+                  <a href="mailto:<%=@mentor.email%>"  class="b-tooltip" title="Email"><i class="fa fa-envelope"></i></a>
                   <!-- Phone Icon -->
                   <!-- <a href="#" class="b-tooltip" title="Phone"><i class="fa fa-phone"></i></a>&nbsp;&nbsp; -->
                   <!-- Facebook Icon -->
@@ -40,7 +40,7 @@
                     <h4>Enter Your Email Address:</h4>
                     <input type="text" name="addEmail" ng-model="addEmail" style="margin-left: 50px;" required/><br><br>
                     <button ng-disable="frm.$invalid" style="margin-left: 105px;" ng-hide="!addName || !addEmail">Submit</button>
-                    </form>                
+                    </form>          
             </div>
           </div>
         </div>
