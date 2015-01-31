@@ -8,10 +8,13 @@ class MentorsController < ApplicationController
 	def show
 		mentor_id = params[:id]
 		@mentors = Mentor.all
-		@mentor = Mentor.find(mentor_id)
 
+		appointment_id = params[:id]
+		@mentor = Mentor.find_by(:id => params[:id])
 		@appointments = @mentor.appointments.all
-		@appointment = Appointment.new
+		@appointment = Appointment.find(appointment_id)
+
+		@new_appointment = Appointment.new
 	end
 
 	def new
@@ -53,12 +56,12 @@ class MentorsController < ApplicationController
 	end
 
 	def mentor_params
-		return params.require(:mentor).permit(:first_name, :last_name, :email, :bio, :photo, :category_id, :commit, :id)
+		return params.require(:mentor).permit(:first_name, :last_name, :email, :bio, :photo, :category_id, :commit, :id, :)
 
 	end
 
 	def appointment_params
-    return params.require(:appointment).permit(:date_start_time, :duration, :mentor_id, :mentee_name, :mentee_email)
+    return params.require(:appointment).permit(:date_start_time, :duration, :mentor_id, :mentee_name, :mentee_email, :available)
   end
 
 end

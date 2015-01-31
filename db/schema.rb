@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117181134) do
+ActiveRecord::Schema.define(version: 20150126190116) do
 
   create_table "appointments", force: true do |t|
     t.datetime "date_start_time"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150117181134) do
     t.string   "mentee_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "available",       default: true
   end
 
   create_table "categories", force: true do |t|

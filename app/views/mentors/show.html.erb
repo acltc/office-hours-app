@@ -1,52 +1,80 @@
-<div class="page-heading-one">
-  <h2 id="mentors-header" class="">Mentors</h2>
-</div>
-<h1>Mentor Appointments Available for:</h1>
-<div class = "container">
-  <div class="ui-50">
-    <div class = "row">
-      <div class="col-md-3 col-sm-4 col-xs-12 bor">
-        <div class="ui-item bg-red">
-          <h4 class="rotate-right"><span><%= @mentor.full_name %></span></h4>
-          <%= image_tag "#{@mentor.photo}", class: "img-responsive" %>
-          <h4><%= @mentor.bio %></h4>
-          <h4><%= @mentor.email %></h4>
-          <div class="ui-icons">
-            <!-- Email Icon -->
-            <a href="mailto:"#{mentor.email} class="b-tooltip" title="Email"><i class="fa fa-envelope"></i></a>
-            <!-- Phone Icon -->
-            <!-- <a href="#" class="b-tooltip" title="Phone"><i class="fa fa-phone"></i></a>&nbsp;&nbsp; -->
-            <!-- Facebook Icon -->
-            <a href="#" class="b-tooltip" title="Facebook"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;
-            <!-- Twitter Icon -->
-            <a href="#" class="b-tooltip" title="Twitter"><i class="fa fa-twitter"></i></a> 
-          </div> 
-          
-        </div>
-      </div>
+
+<div ng-app="app">
+  <div ng-controller="appointmentsCtrl" ng-init="setup(<%=@mentor.id%>)"> 
+    <div class="page-heading-one">
+      <h2 id="mentors-header" class="">Mentors</h2>
     </div>
-  </div>
-  <div class="row">
+    <h1>Mentor Appointments Available for:</h1>
+    <div class = "container">
+      <div class="ui-50">
+        <div class = "row">
+          <div class="col-md-3 col-sm-4 col-xs-12 bor">
+            <div class="ui-item bg-red">
+              <h4 class="rotate-right"><span><%= @mentor.full_name %></span></h4>
+              <%= image_tag @mentor.photo , class: "img-responsive" %>
+              <h4><%= @mentor.bio %></h4>
+              <h4><%= @mentor.email %></h4>
 
-    <div ng-app="app">
-      <div ng-controller="appointmentsCtrl" ng-init="setMentor(<%= @mentor.id %>)">
+              <div class="ui-icons">
+                <!-- Email Icon -->
+                <a href="mailto:<%=@mentor.email%>?subject=1871 mentee inquiry"  class="b-tooltip" title="Email"><i class="fa fa-envelope"></i></a>
+                <!-- Phone Icon -->
+                <!-- <a href="#" class="b-tooltip" title="Phone"><i class="fa fa-phone"></i></a>&nbsp;&nbsp; -->
+                <!-- Facebook Icon -->
+                <a href="#" class="b-tooltip" title="Facebook"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;
+                <!-- Twitter Icon -->
+                <a href="#" class="b-tooltip" title="Twitter"><i class="fa fa-twitter"></i></a> 
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9 col-sm-8 col-xs-12 bor">
+            <div>
+              <h4><%= @mentor.full_name %>'s Available Appointments:<br>Please select the appointment you would like to schedule.</h4> 
+              <h4><%= link_to 'Back to Mentors', mentors_path %></h4>
+              <h4>{{greeting}}</h4>
+              <h4>{{greetingTwo}}</h4>
+              <!-- {{ testphrase}} --> 
 
+              <div ng-repeat="appointment in appointments" ng-click="selectAppointment(appointment)"  required >                  
+                <button class="appointmentButton" style="margin-left: 60px;" >{{appointment.date_start_time | date:'medium'}}<br>{{appointment.duration}} minutes<br></button>
+              </div>                             
+
+              <form name="frm" ng-submit="enterInfo(addName, addEmail)">
+                <h4>Enter Your Full Name:</h4>
+                <input type="text" name="addName" ng-model="addName" style="margin-left: 50px;" required/>
+                <h4>Enter Your Email Address:</h4>
+                <input type="text" name="addEmail" ng-model="addEmail" style="margin-left: 50px;" required/><br><br>
+                <button ng-disable="frm.$invalid" style="margin-left: 105px;" ng-hide="!addName || !addEmail">Submit</button>
+              </form>          
+            </div>
+          </div> <!-- availabale appointments -->
+        </div> <!-- mentor information row -->
+      </div> <!-- ui-50 -->
+
+      <div class="row">
         <div class="new_appointment_form">
-          <h1>New Appointments</h1>
+          <h1>Add Appointments</h1>
 
           <div class="form_field">
-            <label>Event Date: </label><input ng-model="newDateStartTime">
-          </div>
-          
-          <div class="form_field">
-            <label>Appointments Duration: </label><input ng-model="newDuration">
+            <label>Event Date (XX/XX/XXXX): </label><input ng-model="newEventDate">
           </div>
 
-          <button ng-click="createAppointment(newDateStartTime, newDuration, mentorId)">Create Appointment</button>
+          <div class="form_field">
+            <label>Event Time (XX:XX AM): </label><input ng-model="newEventTime">
+          </div>
+
+          <div class="form_field">
+            <label>Appointments Duration: </label><input ng-model="newAppointmentDuration"> minutes
+          </div>
+
+          <div class="form_field">
+          <label>Break Between Appointments: </label><input ng-model="newBreakDuration"> minutes
+          </div>
+
+          <button ng-click="createAppointment(newEventDate, newEventTime, newAppointmentDuration, newBreakDuration)">Create Appointment</button>
         </div> <!-- appointment form -->
+      </div> <!-- row -->
 
-      </div> <!-- ng-controller -->
-    </div> <!-- ng-app -->
-  </div>
-
-</div>
+    </div> <!-- container -->
+  </div> <!-- ng-controller -->
+</div> <!-- ng-app -->
