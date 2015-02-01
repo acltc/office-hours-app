@@ -75,28 +75,31 @@
           <div class="navy">      
             <ul>
               <!-- Main menu -->
-              <li><a href="#">Home</a>
+              <li><a href="#">Quick links</a>
                 <!-- Submenu -->
                 <ul>
-                  <li><a href="sitemap.html" class="red">Complete List</a></li>
+                  <!-- <li><a href="sitemap.html" class="red">Complete List</a></li>
                   <li><a href="index.html">Main Home</a></li>
                   <li><a href="index-bootstrap-carousel.html">Home Carousel</a></li>
-                  <li><a href="index-magazine.html">Home Magazine</a></li>
+                  <li><a href="index-magazine.html">Home Magazine</a></li> -->
                   <!-- 2nd Level sub menu -->
+                  <li><a href="/mentors">Home</a></li>
                   <li>
-                    <a href="#">More #1</a>
+                    <a href="#">Mentor list</a>
                     <ul>
-                      <li><a href="blog-masonry.html">Masonry Style</a></li>
-                      <li><a href="medical-index.html">Medical</a></li>
+                      <% @mentors.each do |mentor| %>
+                      <li><a href="/mentors/<%= mentor.id %>"><%= mentor.full_name %></a></li>
+                      <% end %>
+                      <!-- <li><a href="medical-index.html">Medical</a></li>
                       <li><a href="ecommerce-index.html">Ecommerce</a></li>
                       <li><a href="non-profit-index.html">Non Profit</a></li>
                       <li><a href="coming-soon-image.html">Coming Soon</a></li>
                       <li><a href="index-slim.html">Home Slim</a></li>
                       <li><a href="index-sidebar.html">Home Sidebar</a></li>
-                      <li><a href="index-parallax-slider.html">Home Parallax Slider</a></li>
+                      <li><a href="index-parallax-slider.html">Home Parallax Slider</a></li> -->
                     </ul>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="#">More #2</a>
                     <ul>
                       <li><a href="real-estate-index.html">Real Estate</a></li>
@@ -108,7 +111,7 @@
                       <li><a href="header-2.html">Header Alt</a></li>
                       <li><a href="index-portfolio.html">Home Portfolio</a></li>
                     </ul>
-                  </li>
+                  </li> -->
                 </ul>
               </li>
 
