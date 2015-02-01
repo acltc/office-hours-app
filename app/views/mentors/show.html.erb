@@ -24,14 +24,16 @@
                   <!-- Twitter Icon -->
                   <a href="#" class="b-tooltip" title="Twitter"><i class="fa fa-twitter"></i></a> 
               </div>
-                <h4><%= @mentor.full_name %>'s Available Appointments:<br>Please select the appointment you would like to schedule.</h4> 
-                <h4><%= link_to 'Back to Mentors', mentors_path %></h4>
-                <h4>{{greeting}}</h4>
-                <h4>{{greetingTwo}}</h4>
+                <div>
+                  <h4><%= @mentor.full_name %>'s Available Appointments:<br>Please select the appointment you would like to schedule.</h4> 
+                  <h4><%= link_to 'Back to Mentors', mentors_path %></h4>
+                  <h4>{{greeting}}</h4>
+                  <h4>{{greetingTwo}}</h4>
+                </div>
                   <!-- {{ testphrase}} -->   
-                <div ng-repeat="appointment in appointments " ng-click="selectAppointment(appointment)"  required>                  
-                  <button class="appointmentButton" style="margin-left: 60px;" >{{appointment.date_start_time | date:'MMM d, y hh:mm a': 'UTC' }}<br>{{appointment.duration }} minutes<br></button>
-                </div>         
+                  <div ng-repeat="appointment in appointments " ng-click="selectAppointment(appointment)"  required>                  
+                    <button class="appointmentButton" style="margin-left: 60px;" >{{appointment.date_start_time | date:'MMM d, y hh:mm a': 'UTC' }}<br>{{appointment.duration }} minutes<br></button>
+                  </div>         
 
                   <form name="frm" ng-submit="enterInfo(addName, addEmail)">
                     <h4>Enter Your Full Name:</h4>
@@ -39,12 +41,11 @@
                     <h4>Enter Your Email Address:</h4>
                     <input type="text" name="addEmail" ng-model="addEmail" style="margin-left: 50px;" required/><br><br>
                     <button ng-disable="frm.$invalid" style="margin-left: 105px;" ng-hide="!addName || !addEmail">Submit</button>
-                    </form>          
+                  </form>          
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
