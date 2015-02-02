@@ -22,7 +22,6 @@ console.log(response)
       console.log(appointment);
       alert("You will be scheduled for " + (appointment.duration) + " minutes with this mentor. Please enter your first and last name and your email address in the appropriate section and submit your request.");
       // $scope.greeting =  " You are now scheduled. You should expect to spend " + (appointment.duration) + " minutes with your mentor! "; 
-      
       $scope.appointments = null;
 
       $scope.enterInfo = function(addName, addEmail){
@@ -33,7 +32,7 @@ console.log(response)
         console.log(addName, addEmail);
       var updatedAppointment = { mentee_name: (addName), mentee_email: (addEmail), available: false };
       $http.patch('/api/v1/appointments/' + (appointment.id) + '.json', {appointment: (updatedAppointment)}).then(function(response) {
-         
+               
         }, function (error) {
           $scope.error = error.statusText;
         });

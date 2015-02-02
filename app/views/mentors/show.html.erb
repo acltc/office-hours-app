@@ -31,7 +31,7 @@
                   <h4>{{greetingTwo}}</h4>
                 </div>
                   <!-- {{ testphrase}} -->   
-                  <div ng-if="appointment" ng-repeat="appointment in appointments " ng-click="selectAppointment(appointment)"  required>                  
+                  <div ng-repeat="appointment in appointments " ng-click="selectAppointment(appointment)"  required>                  
                     <button class="appointmentButton" style="margin-left: 60px;" >{{appointment.date_start_time | date:'MMM d, y hh:mm a': 'UTC' }}<br>{{appointment.duration }} minutes<br></button>
                   </div>         
 
