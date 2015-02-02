@@ -18,8 +18,9 @@
       });
     };
 
-    $scope.createAppointment = function(newEventDate, newEventTime, newAppointmentDuration, newBreakDuration) {
+    $scope.createAppointment = function(newEventDate, newEventTime, newAppointmentDuration, newBreakDuration, newNumberOfSlots) {
       var newDateStartTime = newEventDate + " " + newEventTime;
+      var newAppointmentDuration = newAppointmentDuration.slice(0,2)
       var newAppointment = {
         date_start_time: newDateStartTime, 
         duration: newAppointmentDuration,
@@ -60,7 +61,7 @@
           });
         };
       };
-    window.scope = $scope;
-  });
+      window.scope = $scope;
+    });
 
 }());

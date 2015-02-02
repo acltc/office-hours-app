@@ -48,32 +48,64 @@
               </form>          
             </div>
           </div> <!-- availabale appointments -->
+          <div class="col-md-3 col-sm-4 col-xs-12 bor">
+            <div class="ui-item bg-red">
+              <h4 class="form_title">Add Appointments</h4>
+              <div class="new_appointment_form">
+
+                <div class="form_field">
+                  <label>Event Date: </label><input type="date" ng-model="newEventDate">
+                </div>
+
+                <div class="form_field">
+                  <label>Event Time: </label>
+                  <select ng-model="newEventTimeHour">
+                    <% @hours.each do |hour| %>
+                      <option><%= hour %></option>
+                    <% end %>
+                  </select>:
+                  <select ng-model="newEventTimeMinutes">
+                    <% @minutes.each do |minute_value| %>
+                      <option><%= minute_value %></option>
+                    <% end %>
+                  </select> <select>
+                  <option>AM</option>
+                  <option>PM</option>
+                </select>
+              </div>
+
+              <div class="form_field">
+                <label>Num. of Slots: </label>
+                <select ng-model="newNumberOfSlots">
+                  <% @hours.each do |slot| %>
+                    <option><%= slot %></option>
+                  <% end %>
+                </select>
+              </div>
+
+              <div class="form_field">
+                <label>Slot Duration: </label>
+                <select ng-model="newAppointmentDuration">
+                  <% @appointment_durations.each do |appointment_duration| %>
+                    <option><%= appointment_duration %> minutes</option>
+                  <% end %>
+                </select>
+              </div>
+
+              <div class="form_field">
+                <label>Breaks: </label>
+                <select ng-model="newBreakDuration">
+                  <% @break_times.each do |break_time| %>
+                    <option><%= break_time %> Minutes</option>
+                  <% end %>
+                </select>
+              </div>
+
+              <button ng-click="createAppointment(newEventDate, newEventTime, newAppointmentDuration, newBreakDuration, newNumberOfSlots)">Create Appointment</button>
+            </div> <!-- appointment form -->
+          </div>
         </div> <!-- mentor information row -->
       </div> <!-- ui-50 -->
-
-      <div class="row">
-        <div class="new_appointment_form">
-          <h1>Add Appointments</h1>
-
-          <div class="form_field">
-            <label>Event Date (XX/XX/XXXX): </label><input ng-model="newEventDate">
-          </div>
-
-          <div class="form_field">
-            <label>Event Time (XX:XX AM): </label><input ng-model="newEventTime">
-          </div>
-
-          <div class="form_field">
-            <label>Appointments Duration: </label><input ng-model="newAppointmentDuration"> minutes
-          </div>
-
-          <div class="form_field">
-          <label>Break Between Appointments: </label><input ng-model="newBreakDuration"> minutes
-          </div>
-
-          <button ng-click="createAppointment(newEventDate, newEventTime, newAppointmentDuration, newBreakDuration)">Create Appointment</button>
-        </div> <!-- appointment form -->
-      </div> <!-- row -->
 
     </div> <!-- container -->
   </div> <!-- ng-controller -->

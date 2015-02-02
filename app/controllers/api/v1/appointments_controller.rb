@@ -21,7 +21,9 @@ class Api::V1::AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = Appointment.new(params => [:appointment_params])
+    date = appointment_params[:date_start_time]
+    puts date
+    @appointment = Appointment.new(appointment_params)
     unless @appointment.save
       render json: { errors: @appointments.errors.fullmessages }, status: 422
     end
