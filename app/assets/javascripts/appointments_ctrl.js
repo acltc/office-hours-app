@@ -25,14 +25,13 @@ console.log(response)
       $scope.appointments = null;
 
       $scope.enterInfo = function(addName, addEmail){
-        // $scope.greetingTwo = "Thank you! ";
         $scope.addName = "";
         $scope.addEmail = "";
         console.log(addName, addEmail);
       var updatedAppointment = { mentee_name: (addName), mentee_email: (addEmail), available: false };
       $http.patch('/api/v1/appointments/' + (appointment.id) + '.json', {appointment: (updatedAppointment)}).then(function(response) {
-        alert("Thank you! You're appointment is scheduled. If you need to cancel please contact 1871");
-            
+        // alert("Thank you! You're appointment is scheduled. If you need to cancel please contact 1871");   
+        $scope.greetingScheduled = "Thank you! You're appointment is scheduled. If you need to cancel please contact 1871";
         }, function (error) {
           $scope.error = error.statusText;
         });
