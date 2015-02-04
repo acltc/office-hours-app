@@ -9,7 +9,9 @@ $scope.setup = function(mentorId) {
   $http.get("/api/v1/appointments.json?mentor_id=" + $scope.currentMentorId).then(function (response) {
 $scope.appointments = response.data;
 $scope.currentAppointmentId = response.data.id;
+if($scope.appointments.length < 1) alert("No appointments are available for this mentor at this time. Please check back often.");
 console.log(response) 
+console.log($scope.appointments.length)
     });
 
   $http.get("/api/v1/mentors.json?id=" + $scope.currentMentorId).then(function (response) {
