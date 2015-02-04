@@ -12,7 +12,9 @@ class MentorsController < ApplicationController
 		appointment_id = params[:id]
 		@mentor = Mentor.find_by(:id => params[:id])
 		@appointments = @mentor.appointments.all
+			if @appointment
 		@appointment = Appointment.find(appointment_id)
+			end
 	end
 
 	def new
