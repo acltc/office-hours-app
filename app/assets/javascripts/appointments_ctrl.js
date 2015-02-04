@@ -20,8 +20,8 @@ console.log(response)
 
     $scope.selectAppointment = function(appointment){
       console.log(appointment);
-      alert("You will be scheduled for " + (appointment.duration) + " minutes with this mentor. Please enter your first and last name and your email address in the appropriate section and submit your request.");
-      // $scope.greeting =  " You are now scheduled. You should expect to spend " + (appointment.duration) + " minutes with your mentor! "; 
+      // alert("You will be scheduled for " + (appointment.duration) + " minutes with this mentor. Please enter your first and last name and your email address in the appropriate section and submit your request.");
+      $scope.greeting =  "You will be scheduled for " + (appointment.duration) + " minutes with this mentor. Please enter your first and last name and your email address in the section below and submit your request."; 
       $scope.appointments = null;
 
       $scope.enterInfo = function(addName, addEmail){
