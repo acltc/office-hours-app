@@ -1,7 +1,9 @@
+<% if user_signed_in? && current_user.admin? %>
 <%= form_for @mentor do |f| %>
+<div class = "container">
 <div class ="row">
-	<div class="col-sm-4">
-		<div class="panel">
+	<div class="col-md-3 col-sm-4 col-xs-12 bor">
+    <div class="ui-item bg-blue">
 			<div class="panel-heading">
 				<h3 class="panel-title">First Name</h3>
 			</div>
@@ -10,7 +12,7 @@
 				</div>
 		</div>
 
-		<div class="panel">
+		<div class="ui-item bg-blue">
 			<div class="panel-heading">
 		  	<h3 class="panel-title">Last Name</h3>
 			</div>
@@ -19,7 +21,7 @@
 				</div>
 		</div>	
 
-		<div class="panel">
+		<div class="ui-item bg-blue">
 			<div class="panel-heading">
 		  	<h3 class="panel-title">Email</h3>
 			</div>
@@ -29,7 +31,7 @@
 		</div>	
 	</div>
 	<div class="col-sm-4">
-		<div class="panel">
+		<div class="ui-item bg-blue">
 			<div class="panel-heading">
 		  	<h3 class="panel-title">Bio</h3>
 			</div>
@@ -37,7 +39,7 @@
 				 	<%= f.text_area :bio %>
 			</div>
 		</div>
-		<div class="panel">
+		<div class="ui-item bg-blue">
 			<div class="panel-heading">
 		  	<h3 class="panel-title">Category</h3>
 			</div>
@@ -54,6 +56,6 @@
 			<%= f.submit "Submit", class: "btn btn-danger" %>
 		</div>
 	</div>
-
-
+</div>
+<% end %>
 <% end %>

@@ -117,6 +117,12 @@
 
               <li><a href="about-us-one.html">About Us</a></li>
               <li><a href="contact-us-one.html">Contact Us</a></li>
+              <% if user_signed_in? %>
+              <li><a href="/users/sign_out">Admin Sign Out</a></li>
+              <% else %>
+              <li><a href="/users/sign_in">Admin Sign in</a></li>
+              <li><a href="/users/sign_up">Admin Sign up</a></li>
+              <% end %>
             </ul>
           </div>              
           <!-- Navigation ends -->
