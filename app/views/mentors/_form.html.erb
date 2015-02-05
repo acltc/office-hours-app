@@ -1,3 +1,4 @@
+<% if user_signed_in? && current_user.admin? %>
 <%= form_for @mentor do |f| %>
 <div class ="row">
 	<div class="col-sm-4">
@@ -55,5 +56,5 @@
 		</div>
 	</div>
 
-
+<% end %>
 <% end %>
