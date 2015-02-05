@@ -45,7 +45,7 @@
               </div>
             </div> <!-- availabale appointments -->
 
-            <% if user_signed_in? %>
+            <% if user_signed_in? && current_user.admin? %>
             <div class="col-md-3 col-sm-4 col-xs-12 bor">
               <div class="ui-item bg-red">
                 <h4 class="form_title">Add Appointments</h4>
