@@ -16,8 +16,17 @@ class Api::V1::AppointmentsController < ApplicationController
     @appointment = Appointment.find_by(:id => params[:id])
   end
 
+  def new
+    @appointment = Appointment.new
+  end
+
   def create
-    
+    date = appointment_params[:date_start_time]
+    puts date
+    @appointment = Appointment.new(appointment_params)
+    unless @appointment.save
+      render json: { errors: @appointments.errors.fullmessages }, status: 422
+    end
   end
   
   def update
@@ -29,7 +38,6 @@ class Api::V1::AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:mentee_name, :mentee_email, :available)
-    
+    params.require(:appointment).permit(:date_start_time, :duration, :mentor_id, :mentee_name, :mentee_email, :available)
   end
 end

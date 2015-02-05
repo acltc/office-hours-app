@@ -12,9 +12,16 @@ class MentorsController < ApplicationController
 		appointment_id = params[:id]
 		@mentor = Mentor.find_by(:id => params[:id])
 		@appointments = @mentor.appointments.all
-			if @appointment
-		@appointment = Appointment.find(appointment_id)
-			end
+		if @appointment
+			@appointment = Appointment.find(appointment_id)
+		end
+
+		@new_appointment = Appointment.new
+		@hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+		@minutes = [00, 15, 30, 45]
+		@appointment_durations = [15, 30, 45, 60]
+		@break_times = [0, 5, 10, 15, 30]
+
 	end
 
 	def new
@@ -51,13 +58,17 @@ class MentorsController < ApplicationController
 
 	def authenticate_admin!
 		unless user_signed_in? && current_user.admin?
-				
+			
 		end
 	end
 
 	def mentor_params
 		return params.require(:mentor).permit(:first_name, :last_name, :email, :bio, :photo, :category_id, :commit, :id)
 
+	end
+
+	def appointment_params
+		return params.require(:appointment).permit(:date_start_time, :duration, :mentor_id, :mentee_name, :mentee_email, :available)
 	end
 
 end

@@ -4,7 +4,14 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = Appointment.create[params(:appointment)]
+    @mentor = Mentor.find_by(:id => params[:id])
+    @appointment = Appointment.new(params[:appointment])
+
+    if @appointment.save
+      redirect_to mentor_path(@mentor.id)
+    else
+      render 'new'
+    end
   end
 
   private
