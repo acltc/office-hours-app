@@ -8,100 +8,101 @@
       <div class="ui-50">
         <div class = "row">
           <div class="col-md-3 col-sm-4 col-xs-12 bor">
-            <div class="ui-item bg-red">
+            <div class="ui-item bg-black">
               <h4 class="rotate-right"><span><%= @mentor.full_name %></span></h4>
               <%= image_tag @mentor.photo , class: "img-responsive" %>
               <h4><%= @mentor.bio %></h4>
-              <h4><%= @mentor.email %></h4>
+              <h4>Email me if you have any questions!</h4>
 
               <div class="ui-icons">
                 <!-- Email Icon -->
-                <a href="mailto:<%=@mentor.email%>?subject=1871 mentee inquiry"  class="b-tooltip" title="Email"><i class="fa fa-envelope"></i></a>
+                <a href="mailto:<%=@mentor.email%>?subject=1871 mentee inquiry"  class="b-tooltip" title="Email"><h4><%= @mentor.email %></h4><i class="fa fa-envelope"></i></a>
                 <!-- Phone Icon -->
                 <!-- <a href="#" class="b-tooltip" title="Phone"><i class="fa fa-phone"></i></a>&nbsp;&nbsp; -->
                 <!-- Facebook Icon -->
-                <a href="#" class="b-tooltip" title="Facebook"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;
-                <!-- Twitter Icon -->
-                <a href="#" class="b-tooltip" title="Twitter"><i class="fa fa-twitter"></i></a> 
+                  <!-- <a href="#" class="b-tooltip" title="Facebook"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;
+                  Twitter Icon
+                  <a href="#" class="b-tooltip" title="Twitter"><i class="fa fa-twitter"></i></a>  -->
+                </div>
+                <div>
+                  <h4><%= @mentor.full_name %>'s Available Appointments:<br>Please select the appointment you would like to schedule.</h4> 
+                  <button id="mentor-button"><h4><%= link_to 'Click to go Back to Mentors', mentors_path %></h4></button>
+                  <h4>{{greeting}}</h4>
+                  <!-- <h4>{{greetingScheduled}}</h4> -->
+                </div>
+                <!-- {{ testphrase}} -->   
+                <div ng-repeat="appointment in appointments | filter:{available:true} " ng-click="selectAppointment(appointment)" required>                  
+                  <button class="appointmentButton" style="margin-left: 60px;" >{{appointment.date_start_time | date:'MMM d, y hh:mm a': 'UTC' }}<br>{{appointment.duration }} minutes<br></button>
+                </div>         
+
+                <form name="frm" ng-submit="enterInfo(addName, addEmail)">
+                  <h4>Enter Your Full Name:</h4>
+                  <input type="text" name="addName" ng-model="addName" style="margin-left: 50px;" required/>
+                  <h4>Enter Your Email Address:</h4>
+                  <input type="text" name="addEmail" ng-model="addEmail" style="margin-left: 50px;"required/><br><br>
+                  <button ng-disable="frm.$invalid" style="margin-left: 105px;" ng-hide="!addName || !addEmail" >Submit</button>
+                </form> 
               </div>
-              <h4><%= @mentor.full_name %>'s Available Appointments:<br>Please select the appointment you would like to schedule.</h4> 
-              <h4><%= link_to 'Back to Mentors', mentors_path %></h4>
-              <h4>{{greeting}}</h4>
-              <h4>{{greetingTwo}}</h4>
-              <!-- {{ testphrase}} --> 
+            </div> <!-- availabale appointments -->
+            <div class="col-md-3 col-sm-4 col-xs-12 bor">
+              <div class="ui-item bg-red">
+                <h4 class="form_title">Add Appointments</h4>
+                <div class="new_appointment_form">
 
-              <div ng-repeat="appointment in appointments" ng-click="selectAppointment(appointment)"  required >                  
-                <button class="appointmentButton" style="margin-left: 60px;" >{{appointment.date_start_time | date:'medium'}}<br>{{appointment.duration}} minutes<br></button>
-              </div>                             
+                  <div class="form_field">
+                    <label>Event Date: </label><input type="date" ng-model="newEventDate">
+                  </div>
 
-              <form name="frm" ng-submit="enterInfo(addName, addEmail)">
-                <h4>Enter Your Full Name:</h4>
-                <input type="text" name="addName" ng-model="addName" style="margin-left: 50px;" required/>
-                <h4>Enter Your Email Address:</h4>
-                <input type="text" name="addEmail" ng-model="addEmail" style="margin-left: 50px;" required/><br><br>
-                <button ng-disable="frm.$invalid" style="margin-left: 105px;" ng-hide="!addName || !addEmail">Submit</button>
-              </form>          
-            </div>
-          </div> <!-- availabale appointments -->
-          <div class="col-md-3 col-sm-4 col-xs-12 bor">
-            <div class="ui-item bg-red">
-              <h4 class="form_title">Add Appointments</h4>
-              <div class="new_appointment_form">
-
-                <div class="form_field">
-                  <label>Event Date: </label><input type="date" ng-model="newEventDate">
+                  <div class="form_field">
+                    <label>Event Time: </label>
+                    <select ng-model="newEventTimeHour">
+                      <% @hours.each do |hour| %>
+                      <option><%= hour %></option>
+                      <% end %>
+                    </select>:
+                    <select ng-model="newEventTimeMinutes">
+                      <% @minutes.each do |minute_value| %>
+                      <option><%= minute_value %></option>
+                      <% end %>
+                    </select> <select>
+                    <option>AM</option>
+                    <option>PM</option>
+                  </select>
                 </div>
 
                 <div class="form_field">
-                  <label>Event Time: </label>
-                  <select ng-model="newEventTimeHour">
-                    <% @hours.each do |hour| %>
-                    <option><%= hour %></option>
+                  <label>Num. of Slots: </label>
+                  <select ng-model="newNumberOfSlots">
+                    <% @hours.each do |slot| %>
+                    <option><%= slot %></option>
                     <% end %>
-                  </select>:
-                  <select ng-model="newEventTimeMinutes">
-                    <% @minutes.each do |minute_value| %>
-                    <option><%= minute_value %></option>
+                  </select>
+                </div>
+
+                <div class="form_field">
+                  <label>Slot Duration: </label>
+                  <select ng-model="newAppointmentDuration">
+                    <% @appointment_durations.each do |appointment_duration| %>
+                    <option><%= appointment_duration %> minutes</option>
                     <% end %>
-                  </select> <select>
-                  <option>AM</option>
-                  <option>PM</option>
-                </select>
-              </div>
+                  </select>
+                </div>
 
-              <div class="form_field">
-                <label>Num. of Slots: </label>
-                <select ng-model="newNumberOfSlots">
-                  <% @hours.each do |slot| %>
-                  <option><%= slot %></option>
-                  <% end %>
-                </select>
-              </div>
+                <div class="form_field">
+                  <label>Breaks: </label>
+                  <select ng-model="newBreakDuration">
+                    <% @break_times.each do |break_time| %>
+                    <option><%= break_time %> Minutes</option>
+                    <% end %>
+                  </select>
+                </div>
 
-              <div class="form_field">
-                <label>Slot Duration: </label>
-                <select ng-model="newAppointmentDuration">
-                  <% @appointment_durations.each do |appointment_duration| %>
-                  <option><%= appointment_duration %> minutes</option>
-                  <% end %>
-                </select>
-              </div>
+                <button ng-click="createAppointment(newEventDate, newEventTime, newAppointmentDuration, newBreakDuration, newNumberOfSlots)">Create Appointment</button>
+              </div> <!-- appointment form -->
+            </div>
+          </div> <!-- mentor information row -->
+        </div> <!-- ui-50 -->
 
-              <div class="form_field">
-                <label>Breaks: </label>
-                <select ng-model="newBreakDuration">
-                  <% @break_times.each do |break_time| %>
-                  <option><%= break_time %> Minutes</option>
-                  <% end %>
-                </select>
-              </div>
-
-              <button ng-click="createAppointment(newEventDate, newEventTime, newAppointmentDuration, newBreakDuration, newNumberOfSlots)">Create Appointment</button>
-            </div> <!-- appointment form -->
-          </div>
-        </div> <!-- mentor information row -->
-      </div> <!-- ui-50 -->
-
-    </div> <!-- container -->
-  </div> <!-- ng-controller -->
-</div> <!-- ng-app -->
+      </div> <!-- container -->
+    </div> <!-- ng-controller -->
+  </div> <!-- ng-app -->
