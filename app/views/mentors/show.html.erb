@@ -3,18 +3,28 @@
     <div class="page-heading-one">
       <h2 id="mentors-header" class="">Mentors</h2>
     </div>
-    <h1>Mentor Appointments Available for:</h1>
     <div class = "container">
+    <h1>Mentor Appointments Available for:</h1>
       <div class="ui-50">
         <div class = "row">
           <div class="col-md-3 col-sm-4 col-xs-12 bor">
             <div class="ui-item bg-black">
               <h4 class="rotate-right"><span><%= @mentor.full_name %></span></h4>
               <%= image_tag @mentor.photo , class: "img-responsive" %>
-              <h4><%= @mentor.bio %></h4>
-              <h4>Email me if you have any questions!</h4>
+              <h4><%= @mentor.bio %></h4>      
+              </div>
+            </div> <!-- mentor bio -->
 
-              <div class="ui-icons">
+            <div class="col-md-3 col-sm-4 col-xs-12 bor">
+              <div class="ui-item bg-black">
+                <div>
+                  <button id="mentor-button"><h4><%= link_to 'Click to go Back to Mentors', mentors_path %></h4></button>
+                  <h4>{{greeting}}</h4>
+                  <!-- <h4>{{greetingScheduled}}</h4> -->
+                </div>
+                <h4>Email <%= @mentor.first_name %> if you have any questions!</h4>
+
+                <div class="ui-icons">
                 <!-- Email Icon -->
                 <a href="mailto:<%=@mentor.email%>?subject=1871 mentee inquiry"  class="b-tooltip" title="Email"><h4><%= @mentor.email %></h4><i class="fa fa-envelope"></i></a>
                 <!-- Phone Icon -->
@@ -24,13 +34,8 @@
                   Twitter Icon
                   <a href="#" class="b-tooltip" title="Twitter"><i class="fa fa-twitter"></i></a>  -->
                 </div>
-                <div>
-                  <h4><%= @mentor.full_name %>'s Available Appointments:<br>Please select the appointment you would like to schedule.</h4> 
-                  <button id="mentor-button"><h4><%= link_to 'Click to go Back to Mentors', mentors_path %></h4></button>
-                  <h4>{{greeting}}</h4>
-                  <!-- <h4>{{greetingScheduled}}</h4> -->
-                </div>
-                <!-- {{ testphrase}} -->   
+                <h4><%= @mentor.full_name %>'s Available Appointments:<br>Please select the appointment you would like to schedule.</h4> 
+
                 <div ng-repeat="appointment in appointments | filter:{available:true} " ng-click="selectAppointment(appointment)" required>                  
                   <button class="appointmentButton" style="margin-left: 60px;" >{{appointment.date_start_time | date:'MMM d, y hh:mm a': 'UTC' }}<br>{{appointment.duration }} minutes<br></button>
                 </div>         
@@ -104,6 +109,8 @@
               <% end %>
             </div>
           </div> <!-- mentor information row -->
+
+            
         </div> <!-- ui-50 -->
 
       </div> <!-- container -->
