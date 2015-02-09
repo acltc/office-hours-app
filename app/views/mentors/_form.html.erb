@@ -27,7 +27,7 @@
 			</div>
 				<div class="panel-body">
 				 	<%= f.text_field :email %>
-			</div>
+				</div>
 		</div>	
 	</div>
 	<div class="col-sm-4">
@@ -37,7 +37,16 @@
 			</div>
 				<div class="panel-body">
 				 	<%= f.text_area :bio %>
+				</div>
+		</div>
+		<div class="ui-item bg-blue">
+			<div class="panel-heading">
+		  	<h3 class="panel-title">Photo</h3>
 			</div>
+			<h4>Current Photo</h4><%= image_tag @mentor.photo_url , class: "img-responsive" %>
+				<div class="panel-body">
+				 	<%= f.file_field :photo %>
+				</div>
 		</div>
 		<div class="ui-item bg-blue">
 			<div class="panel-heading">
@@ -49,7 +58,7 @@
 							<%= f.label category.name %>
 							<%= f.radio_button(:category_id, category.name) %>
 					<% end %>
-			</div>
+				</div>
 		</div>
 
 		<div>
