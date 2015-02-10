@@ -83,13 +83,13 @@
                   <li><a href="index-bootstrap-carousel.html">Home Carousel</a></li>
                   <li><a href="index-magazine.html">Home Magazine</a></li> -->
                   <!-- 2nd Level sub menu -->
-                  <li><a href="/mentors">Home</a></li>
+                  <li><a href="/mentors">Show All Mentors</a></li>
                   <li>
                     <a href="#">Mentor list</a>
                     <ul>
-                      <%# @mentors.each do |mentor| %>
-                      <li><a href="/mentors/<%# mentor.id %>"><%# mentor.full_name %></a></li>
-                      <%# end %>
+                      <% @mentors.each do |mentor| %>
+                      <li><a href="/mentors/<%= mentor.id %>"><%= mentor.full_name %></a></li>
+                      <% end %>
                       <!-- <li><a href="medical-index.html">Medical</a></li>
                       <li><a href="ecommerce-index.html">Ecommerce</a></li>
                       <li><a href="non-profit-index.html">Non Profit</a></li>
@@ -115,8 +115,8 @@
                 </ul>
               </li>
 
-              <li><a href="about-us-one.html">About Us</a></li>
-              <li><a href="contact-us-one.html">Contact Us</a></li>
+              <li><a href="http://www.1871.com/about-1871/" target="_blank">About Us</a></li>
+              <li><a href="mailto:contact@1871?subject=Mentors appointments website">Contact Us</a></li>
               <% if user_signed_in? %>
               <li><a href="/users/sign_out">Admin Sign Out</a></li>
               <% else %>
@@ -203,17 +203,17 @@ And from this seed of an idea came the inspiration for the name 1871. Like the G
               </div>
               <!-- <div class="subscribe-box">
                 <h5 class="bold">Subscribe :</h5>
-                <!-- Form -->
-                <!-- <form role="form"> --> 
-                  <!-- Input Group -->
-                  <!-- <div class="input-group">
+               
+                <form role="form">
+                  
+                  <div class="input-group">
                     <input type="text" class="form-control" placeholder="Enter Email Id">
                     <span class="input-group-btn">
                       <button class="btn btn-color" type="button">Subscribe</button>
                     </span>
                   </div>
-                </form> -->
-              </div>
+                </form>
+              </div> -->
             </div>
           </div>  
           <div class="col-md-3 col-sm-6">
@@ -288,14 +288,14 @@ And from this seed of an idea came the inspiration for the name 1871. Like the G
       <div class="container">
         <!-- Footer Content -->
           <!-- Paragraph -->
-          <p class="pull-left">Copyright &copy; <%= Time.now.to_date %> - <a href="http://1871.com">1871 Website</a></p>
+          <p class="pull-left">Copyright &copy; <%= Time.now.to_date %> - <a href="#">Your Site</a></p>
           <ul class="list-inline pull-right">
             <!-- List -->
-            <li><a href="index.html">Home</a><li>
+            <!-- <li><a href="index.html">Home</a><li>
             <li><a href="service.html">Service</a></li>
             <li><a href="feature.html">Features</a></li>
             <li><a href="about-us.html">About</a></li>
-            <li><a href="contact-us.html">Contact</a></li>
+            <li><a href="contact-us.html">Contact</a></li> -->
           </ul>
           <!-- Clearfix -->
           <div class="clearfix"></div>
