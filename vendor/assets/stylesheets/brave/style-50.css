@@ -523,9 +523,11 @@ hr {
 /* UI Item */
 .ui-50 .ui-item{	
 	max-width:300px;
+	min-height: 550px;
 	padding:40px 0px;
 	margin-left:3px;
 	margin-right:auto;
+	margin-top:3px;
 }
 /* Name */
 .ui-50 .ui-item h4{
@@ -553,9 +555,9 @@ hr {
 }
 /* User Image */
 .ui-50 .ui-item img{
-	width:120px;
+	width:175px;
 	border-radius:100%;
-	margin:30px auto;
+	margin:58px;
 	box-shadow: 8px 6px 0px rgba(0,0,0,0.08);
 	border: 6px solid #fff;
 }
