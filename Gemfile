@@ -30,6 +30,7 @@ gem 'pg', group: :production
 gem 'rails_12factor', group: :production
 
 gem 'whenever', :require => false
+gem 'rmagick'
 gem 'carrierwave'
 # This is for cronjobs fools
 
