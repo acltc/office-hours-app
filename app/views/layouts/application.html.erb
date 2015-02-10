@@ -85,11 +85,11 @@
                   <!-- 2nd Level sub menu -->
                   <li><a href="/mentors">Show All Mentors</a></li>
                   <li>
-                    <a href="#">Mentor list</a>
+                    <!-- <a href="#">Mentor list</a> -->
                     <ul>
-                      <% @mentors.each do |mentor| %>
-                      <li><a href="/mentors/<%= mentor.id %>"><%= mentor.full_name %></a></li>
-                      <% end %>
+                      <%# @mentors.each do |mentor| %>
+                      <li><a href="/mentors/<%# mentor.id %>"><%# mentor.full_name %></a></li>
+                      <%# end %>
                       <!-- <li><a href="medical-index.html">Medical</a></li>
                       <li><a href="ecommerce-index.html">Ecommerce</a></li>
                       <li><a href="non-profit-index.html">Non Profit</a></li>
