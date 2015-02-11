@@ -1,30 +1,35 @@
 <div class="page-heading-one">
-  <h2 id="mentors-header" class="">Mentors</h2>
+	<h2 id="mentors-header" class="">Mentors</h2>
 </div>
 <h1>Mentor Home Page</h1>
 <div class = "container">
 	<div class="ui-50">
 		<div class = "row">
-			<% @mentors.each do |mentor| %>
-			<div class="col-md-3 col-sm-4 col-xs-12 bor">
-				<div class="ui-item bg-black">
-					<a href="/mentors/<%= mentor.id %>"> 
-					<h4 class="rotate-right"><span><%= mentor.full_name %></span></h4>
-					<%= image_tag "#{mentor.photo}", class: "img-responsive" %>
-					 <div class="ui-icons">
-	            <!-- Email Icon -->
-	            <a href="mailto:<%= mentor.email %>?subject=1871 mentee inquiry" class="b-tooltip" title="Email"><h4>Email me with questions.</h4><i class="fa fa-envelope"></i></a>
-	            <!-- Phone Icon -->
-	            <!-- <a href="#" class="b-tooltip" title="Phone"><i class="fa fa-phone"></i></a>&nbsp;&nbsp; -->
-	            <!-- Facebook Icon -->
+			<% @category_hash.each_pair do |category_key, mentors| %>
+			<div class="row">
+				<h1><%= category_key.name.capitalize if mentors.any? %></h1>
+				<% mentors.each do |mentor| %>
+				<div class="col-md-3 col-sm-4 col-xs-12 bor">
+					<div class="ui-item bg-black">
+						<a href="/mentors/<%= mentor.id %>"> 
+							<h4 class="rotate-right"><span><%= mentor.full_name %></span></h4>
+							<%= image_tag "#{mentor.photo}", class: "img-responsive" %>
+							<div class="ui-icons">
+								<!-- Email Icon -->
+								<a href="mailto:<%= mentor.email %>?subject=1871 mentee inquiry" class="b-tooltip" title="Email"><h4>Email me with questions.</h4><i class="fa fa-envelope"></i></a>
+								<!-- Phone Icon -->
+								<!-- <a href="#" class="b-tooltip" title="Phone"><i class="fa fa-phone"></i></a>&nbsp;&nbsp; -->
+								<!-- Facebook Icon -->
 	            <!-- <a href="#" class="b-tooltip" title="Facebook"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;
 	            Twitter Icon
 	            <a href="#" class="b-tooltip" title="Twitter"><i class="fa fa-twitter"></i></a>  -->
-			     </div>			         
-				</div>
-			</div>
-			<% end %>
-		</div>
+	          </div>			         
+	        </div>
+	      </div>
+	      <% end %>
+	    </div>
+	    <% end %>
+	  </div>
 	</div>
 
 </div>
