@@ -1,1 +1,35 @@
-<h1>Hello World</h1>
+<div ng-app="app">
+  <div class="container">
+    <h1>Administrator information and editing page</h1>
+    <div class = "row">
+      <div class="col-md-3">
+        <div class = 'adminPage'>
+          <h1>Your Order:</h1><br>
+          <table class="table">
+            <tr>
+              <th>Edit</th>
+              <th>Delete</th>
+              <th>Mentor</th>
+              <th>Add Appointments</th>
+              <th>Delete</th>
+              <th>Appointments</th>
+            </tr>
+            <% @mentors.each do |mentor| %>                 
+
+            <tr>
+              <td><%= link_to 'EDIT', edit_mentor_path(mentor.id) %></td>
+              <td><a data-confirm="Are you sure?" data-method="delete" href="/mentors/<%= mentor.id %>" rel="nofollow"><button type="button" class="btn btn-danger">Delete</button></a></td>
+              <td><%= mentor.full_name %></td>
+              <td><%= link_to 'ADD', mentor_path(mentor.id) %></td>
+                <% mentor.appointments.each do |appointment| %>
+              <td><a data-confirm="Are you sure?" data-method="delete" href="/appointments/<%= appointment.id %>" rel="nofollow"><button type="button" class="btn btn-danger">Delete</button></a></td>
+              <td><%= appointment.date_start_time %><br><%= appointment.duration%> minutes</td>
+                <% end %> 
+              </tr>
+            <% end %>  
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
