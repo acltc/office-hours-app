@@ -12,7 +12,7 @@ class MentorsController < ApplicationController
 
 		@mentors.each do |mentor|
 			mentor.appointments.each do |appointment|
-				if appointment.date_start_time.future?
+				if appointment.available == true && appointment.date_start_time.future?
 					@mentors_with_future_appointments.push(mentor) unless @mentors_with_future_appointments.include?(mentor)
 				end
 			end
