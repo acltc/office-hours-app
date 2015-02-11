@@ -14,6 +14,14 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @appointment = Appointment.find_by(:id => params[:id])
+    @appointment.destroy
+    flash[:success] = "Appointment Deleted"
+    redirect_to '/admins'
+    
+  end
+
   private
 
   def appointment_params
