@@ -521,9 +521,9 @@ hr {
 	margin:30px auto;
 }
 /* UI Item */
-.ui-50 .ui-item{	
+.ui-50 .ui-item{
 	max-width:300px;
-	min-height: 550px;
+	min-height: 1200px;
 	padding:40px 0px;
 	margin-left:3px;
 	margin-right:auto;
