@@ -4,13 +4,21 @@ class MentorsController < ApplicationController
 	def index
 		@mentors = Mentor.all
 		@categories = Category.all
+		@mentors_with_future_appointments = []
 		@category_hash = {}
 		@categories.each do |category|
 			@category_hash[category] = []
 		end
 
-		@mentors_with_appointments = []
 		@mentors.each do |mentor|
+			mentor.appointments.each do |appointment|
+				if appointment.date_start_time.future?
+					@mentors_with_future_appointments.push(mentor) unless @mentors_with_future_appointments.include?(mentor)
+				end
+			end
+		end
+
+		@mentors_with_future_appointments.each do |mentor|
 			@categories.each do |category|
 				if mentor.category_id == category.id && mentor.appointments.any?
 					@category_hash[category] << mentor
