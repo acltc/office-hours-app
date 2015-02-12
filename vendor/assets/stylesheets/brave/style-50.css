@@ -568,7 +568,7 @@ hr {
 .ui-50 .ui-icons a i{
 	width: 40px;
 	height: 40px;
-	border: 1px solid #fff;
+	border: 3px solid #fff;
 	color: #fff;
 	border-radius: 100%;
 	line-height: 40px;
@@ -582,7 +582,7 @@ hr {
 
 /* UI Social Icons Hover */
 .ui-50 .ui-icons a i:hover{
-	background:rgba(0,0,0,0.2);
+	 background-color: lightgrey;
 }
 /* UI 50 */
 .ui-51{
@@ -636,7 +636,7 @@ hr {
 .ui-51 .ui-icons a i{
 	width: 40px;
 	height: 40px;
-	border: 1px solid #fff;
+	border: 3px solid #fff;
 	color: #fff;
 	border-radius: 100%;
 	line-height: 40px;
@@ -650,5 +650,5 @@ hr {
 
 /* UI Social Icons Hover */
 .ui-51 .ui-icons a i:hover{
-	background:rgba(0,0,0,0.2);
+	 background-color: lightgrey;
 }
