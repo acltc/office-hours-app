@@ -532,8 +532,8 @@ hr {
 /* Name */
 .ui-50 .ui-item h4{
 	text-align:center;
-	font-family: 'Playball', cursive;
-	font-size:22px;
+	font-family: 'Open Sans', sans-serif;
+	font-size:19px;
 	color:#fff;
 	font-weight:normal;
 }
@@ -582,5 +582,73 @@ hr {
 
 /* UI Social Icons Hover */
 .ui-50 .ui-icons a i:hover{
+	background:rgba(0,0,0,0.2);
+}
+/* UI 50 */
+.ui-51{
+	margin:30px auto;
+}
+/* UI Item */
+.ui-51 .ui-item{
+	max-width:300px;
+	min-height: 530px;
+	padding:40px 0px;
+	margin-left:3px;
+	margin-right:auto;
+	margin-top:3px;
+}
+/* Name */
+.ui-51 .ui-item h4{
+	text-align:center;
+	font-family: 'Open Sans', sans-serif;
+	font-size:19px;
+	color:#fff;
+	font-weight:normal;
+}
+.ui-51 .ui-item h4 span {
+	background:#666;	
+	padding:3px 15px;
+}
+/* Rotate Right */
+.ui-51 .ui-item h4.rotate-right{
+	-ms-transform: rotate(2deg); /* IE 9 */
+   -webkit-transform: rotate(2deg); /* Chrome, Safari, Opera */
+    transform: rotate(2deg);
+}
+/* Rotate Left */
+.ui-51 .ui-item h4.rotate-left{
+	-ms-transform: rotate(356deg); /* IE 9 */
+   -webkit-transform: rotate(356deg); /* Chrome, Safari, Opera */
+    transform: rotate(356deg);
+}
+/* User Image */
+.ui-51 .ui-item img{
+	width:175px;
+	border-radius:100%;
+	margin:58px;
+	box-shadow: 8px 6px 0px rgba(0,0,0,0.08);
+	border: 6px solid #fff;
+}
+/* UI Social Icons */
+.ui-51 .ui-icons{
+	text-align:center;
+}
+.ui-51 .ui-icons a i{
+	width: 40px;
+	height: 40px;
+	border: 1px solid #fff;
+	color: #fff;
+	border-radius: 100%;
+	line-height: 40px;
+	box-shadow: 4px 4px 0px rgba(0,0,0,0.2);	
+	-webkit-transition:all 1s;
+	-moz-transition:all 1s; /* FF3.6+ */
+	-o-transition: all 1s; /* Opera 11.10+ */
+	-ms-transition:all 1s;
+	transition:all 1s;
+}
+
+/* UI Social Icons Hover */
+.ui-51 .ui-icons a i:hover{
 	background:rgba(0,0,0,0.2);
 }
