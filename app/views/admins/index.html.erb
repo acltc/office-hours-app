@@ -1,3 +1,4 @@
+<% if user_signed_in? && current_user.admin? %>
 <div ng-app="app">
   <div class="container">
     <h1>Administrator information and editing page</h1>
@@ -5,7 +6,7 @@
       <div class="col-md-3">
         <div class = 'adminPage'>
           <h1>Your Order:</h1><br>
-          <table class="table">
+          <table class="table table-striped table-bordered">
             <tr>
               <th>Edit</th>
               <th>Delete</th>
@@ -33,3 +34,4 @@
     </div>
   </div>
 </div>
+<% end %>

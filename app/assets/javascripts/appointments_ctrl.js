@@ -57,7 +57,7 @@
         $http.patch('/api/v1/appointments/' + (appointment.id) + '.json', {appointment: (updatedAppointment)}).then(function(response) {
           alert("Thank you " + (updatedAppointment.mentee_name) + "! You're appointment is scheduled. If you need to cancel please contact 1871");   
         // $scope.greetingScheduled = "Thank you! You're appointment is scheduled. If you need to cancel please contact 1871";
-        window.location.href= "/"
+        window.location.href= "/";
       }, function (error) {
         $scope.error = error.statusText;
       });
