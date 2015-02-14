@@ -117,12 +117,6 @@
 
               <li><a href="http://www.1871.com/about-1871/" target="_blank">About Us</a></li>
               <li><a href="mailto:contact@1871?subject=Mentors appointments website">Contact Us</a></li>
-              <% if user_signed_in? %>
-              <li><a href="/users/sign_out">Admin Sign Out</a></li>
-              <% else %>
-              <li><a href="/users/sign_in">Admin Sign in</a></li>
-              <li><a href="/users/sign_up">Admin Sign up</a></li>
-              <% end %>
             </ul>
           </div>              
           <!-- Navigation ends -->
@@ -290,6 +284,12 @@ And from this seed of an idea came the inspiration for the name 1871. Like the G
           <!-- Paragraph -->
           <p class="pull-left">Copyright &copy; <%= Time.now.to_date %> - <a href="#">Your Site</a></p>
           <ul class="list-inline pull-right">
+            <% if user_signed_in? %>
+              <li><a href="/users/sign_out">Admin Sign Out</a></li>
+              <% else %>
+              <li><a href="/users/sign_in">Admin Sign in</a></li>
+              <li><a href="/users/sign_up">Admin Sign up</a></li>
+              <% end %>
             <!-- List -->
             <!-- <li><a href="index.html">Home</a><li>
             <li><a href="service.html">Service</a></li>

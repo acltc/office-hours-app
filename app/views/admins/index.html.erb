@@ -1,3 +1,4 @@
+<% if user_signed_in? && current_user.admin? %>
 <div ng-app="app">
   <div class="container">
     <h1>Administrator information and editing page</h1>
@@ -5,7 +6,7 @@
       <div class="col-md-3">
         <div class = 'adminPage'>
           <h1>Your Order:</h1><br>
-          <table class="table">
+          <table class="table table-striped table-bordered table-responsive">
             <tr>
               <th>Edit</th>
               <th>Delete</th>
@@ -17,13 +18,13 @@
             <% @mentors.each do |mentor| %>                 
 
             <tr>
-              <td><%= link_to 'EDIT', edit_mentor_path(mentor.id) %></td>
-              <td><a data-confirm="Are you sure?" data-method="delete" href="/mentors/<%= mentor.id %>" rel="nofollow"><button type="button" class="btn btn-danger">Delete</button></a></td>
+              <td><%= link_to 'EDIT Mentor', edit_mentor_path(mentor.id) %></td>
+              <td><a data-confirm="Are you sure?" data-method="delete" href="/mentors/<%= mentor.id %>" rel="nofollow"><button type="button" class="btn btn-danger">Delete Mentor</button></a></td>
               <td><%= mentor.full_name %></td>
-              <td><%= link_to 'ADD', mentor_path(mentor.id) %></td>
+              <td><%= link_to 'ADD Appointments?', mentor_path(mentor.id) %></td>
                 <% mentor.appointments.each do |appointment| %>
-              <td><a data-confirm="Are you sure?" data-method="delete" href="/appointments/<%= appointment.id %>" rel="nofollow"><button type="button" class="btn btn-danger">Delete</button></a></td>
-              <td><%= appointment.date_start_time %><br><%= appointment.duration%> minutes</td>
+              <td><a data-confirm="Are you sure?" data-method="delete" href="/appointments/<%= appointment.id %>" rel="nofollow"><button type="button" class="btn btn-danger">Delete Appt.</button></a></td>
+              <td><%= appointment.date_start_time.strftime("%I:%M %p") %><br><%= appointment.date_start_time.strftime("%v") %><br><%= appointment.duration%> minutes</td>
                 <% end %> 
               </tr>
             <% end %>  
@@ -33,3 +34,4 @@
     </div>
   </div>
 </div>
+<% end %>
