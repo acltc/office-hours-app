@@ -62,16 +62,17 @@
 
                   <div class="form_field">
                     <label>Event Time: </label>
-                    <select ng-model="newEventTimeHour">
+                    <select ng-model="newTimeHour">
                       <% @hours.each do |hour| %>
                       <option><%= hour %></option>
                       <% end %>
                     </select>:
-                    <select ng-model="newEventTimeMinutes">
+                    <select ng-model="newTimeMinutes">
                       <% @minutes.each do |minute_value| %>
                       <option><%= minute_value %></option>
                       <% end %>
-                    </select> <select>
+                    </select>
+                  <select ng-model="newAmPm">
                     <option>AM</option>
                     <option>PM</option>
                   </select>
@@ -90,7 +91,7 @@
                   <label>Slot Duration: </label>
                   <select ng-model="newAppointmentDuration">
                     <% @appointment_durations.each do |appointment_duration| %>
-                    <option><%= appointment_duration %> minutes</option>
+                    <option><%= appointment_duration %></option>
                     <% end %>
                   </select>
                 </div>
@@ -99,12 +100,12 @@
                   <label>Breaks: </label>
                   <select ng-model="newBreakDuration">
                     <% @break_times.each do |break_time| %>
-                    <option><%= break_time %> Minutes</option>
+                    <option><%= break_time %></option>
                     <% end %>
                   </select>
                 </div>
 
-                <button ng-click="createAppointment(newEventDate, newEventTime, newAppointmentDuration, newBreakDuration, newNumberOfSlots)">Create Appointment</button>
+                <button ng-click="createAppointment(newEventDate, newTimeHour, newTimeMinutes, newAmPm, newAppointmentDuration, newBreakDuration, newNumberOfSlots)">Create Appointment</button>
               </div> <!-- appointment form -->
               <% end %>
             </div>
