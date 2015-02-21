@@ -11,7 +11,7 @@
         $scope.currentAppointmentId = response.data.id;
         if($scope.appointments.length < 1) alert("No appointments are available for this mentor at this time. Please check back often.");
         console.log(response) 
-        console.log($scope.appointments.length)
+        // console.log($scope.appointments.length)
       });
 
       $http.get("/api/v1/mentors.json?id=" + $scope.currentMentorId).then(function (response) {
@@ -20,21 +20,29 @@
       });
     };
 
-    $scope.createAppointment = function(newEventDate, newEventTime, newAppointmentDuration, newBreakDuration, newNumberOfSlots) {
-      var newDateStartTime = newEventDate + " " + newEventTime;
-      var newAppointmentDuration = newAppointmentDuration.slice(0,2)
+    $scope.createAppointment = function(newEventDate, newTimeHour, newTimeMinutes, newAmPm, newAppointmentDuration, newBreakDuration, newNumberOfSlots) {
+      var appointmentDuration = newAppointmentDuration;
+      console.log(newEventDate);
+      var eventDate = newEventDate;
+      var newTime = newTimeHour + ":" + newTimeMinutes + " " + newAmPm;
       var newAppointment = {
-        date_start_time: newDateStartTime, 
-        duration: newAppointmentDuration,
+        date: eventDate,
+        time: newTime,
+        slots: newNumberOfSlots,
+        duration: appointmentDuration,
+        slot_break: newBreakDuration,
         mentor_id: $scope.currentMentorId
       };
       $http.post("/api/v1/appointments.json", {appointment: newAppointment}).then(function (response) {
 
         $scope.appointments.push(newAppointment);
         $scope.newEventDate = "";
-        $scope.newEventTime = "";
+        $scope.newTimeHour = "";
+        $scope.newTimeMinutes = "";
+        $scope.newAmPm = "";
         $scope.newAppointmentDuration = "";
         $scope.newBreakDuration = "";
+        $scope.newNumberOfSlots = "";
 
       }, function (error) {
         $scope.error = error.statusText;

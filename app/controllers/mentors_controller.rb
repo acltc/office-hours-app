@@ -12,7 +12,7 @@ class MentorsController < ApplicationController
 
 		@mentors.each do |mentor|
 			mentor.appointments.each do |appointment|
-				if appointment.available == true && appointment.date_start_time.future?
+				if appointment.available && appointment.date_start_time.future?
 					@mentors_with_future_appointments.push(mentor) unless @mentors_with_future_appointments.include?(mentor)
 				end
 			end
@@ -22,7 +22,7 @@ class MentorsController < ApplicationController
 			@categories.each do |category|
 				if mentor.category_id == category.id && mentor.appointments.any?
 					@category_hash[category] << mentor
-					@category_hash[category].sort!
+					@category_hash[category].sort_by!{ |mentor| mentor.last_name.downcase }
 				end
 			end
 		end
@@ -41,8 +41,8 @@ class MentorsController < ApplicationController
 		end
 
 		@new_appointment = Appointment.new
-		@hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-		@minutes = [00, 15, 30, 45]
+		@hours = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+		@minutes = ["00", "15", "30", "45"]
 		@appointment_durations = [15, 30, 45, 60]
 		@break_times = [0, 5, 10, 15, 30]
 
