@@ -48,8 +48,12 @@ class Api::V1::AppointmentsController < ApplicationController
   
   def update
     @appointment = Appointment.find(params[:id])
-    @appointment.update(appointment_params)
-    
+    if @appointment.update(appointment_params)
+      MyMailer.email_appointment_selected(@appointment).deliver
+         
+      else
+        render 'edit'
+      end    
   end
 
   private
