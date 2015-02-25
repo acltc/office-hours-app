@@ -12,10 +12,12 @@
               <th>Delete</th>
               <th>Mentor</th>
               <th>Add Appointments</th>
-              <th>Delete</th>
-              <th>Appointments</th>
-            </tr>
             <% @mentors.each do |mentor| %>                 
+              <% mentor.appointments.each do |appointment| %>
+              <th>Delete</th>
+              <th>Appointment</th>
+              <% end %>
+            </tr>
 
             <tr>
               <td><%= link_to 'EDIT Mentor', edit_mentor_path(mentor.id) %></td>
