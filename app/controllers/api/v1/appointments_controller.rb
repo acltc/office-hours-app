@@ -1,11 +1,6 @@
 class Api::V1::AppointmentsController < ApplicationController
   def index
-    @appointments = Appointment.all
-    @appointments = Appointment.where(:mentor_id => params[:mentor_id])
-    if params[:mentor_id]
-    end
-
-    
+    @appointments = Appointment.where(:mentor_id => params[:mentor_id]).where("date_start_time > ?", Time.now).where(:available => true) 
   end
 
   def show
@@ -55,6 +50,8 @@ class Api::V1::AppointmentsController < ApplicationController
         render 'edit'
       end    
   end
+
+
 
   private
 

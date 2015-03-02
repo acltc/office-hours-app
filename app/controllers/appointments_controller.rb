@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
-  def new
-    @appointment = Appointment.new
-  end
+  # def new
+  #   @appointment = Appointment.new
+  # end
 
   def create
     @mentor = Mentor.find_by(:id => params[:id])

@@ -1,2 +1,7 @@
 Your Appointment 
+++++++++++++++++++++++++++++++++++++++++++++
 
+Thank you, <%= @appointment.mentee_name %>
+Your appointment is scheduled for <%= @appointment.date_start_time.strftime("%I:%M %p") %> on  <%= @appointment.date_start_time.strftime("%a %v") %> and will last for <%= @appointment.duration %> minutes with <%= @appointment.mentor.full_name %>.
+
+<a href="mailto:<%= @appointment.mentor.email %>,<%= @appointment.mentee_email %>?subject=1871 appointment cancellation&body=I'm sorry but I am unable to make the appointment that was scheduled on <%= @appointment.date_start_time.strftime("%a %v") %> at <%= @appointment.date_start_time.strftime("%I:%M %p") %> . If you need any more assistance or have any questions please feel free to contact 1871 at (312) 239-0310. Thank you!" >Cancel Appointment via Email</a> 

@@ -7,7 +7,7 @@ Rails.application.initialize!
 
 ActionMailer::Base.smtp_settings = {
   :user_name => 'relroy5499@gmail.com',
-  :password => 'Smitty10',
+  :password => 'Your Password',
   :domain => 'example.com',
   :address => 'smtp.gmail.com',
   :port => 587,
