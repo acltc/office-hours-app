@@ -4,14 +4,22 @@ class Appointment < ActiveRecord::Base
   require 'date'
 
 
-  def run_cron_job_everyday_to_remind_mentees
-    tomorrow = Date.today + 1
-    tomorrows_appointments = Appointment.where(:date_start_time => tomorrow.beginning_of_day..tomorrow.end_of_day)
-    send_email_to_mentees(tomorrows_appointments)
-  end
+  # def run_cron_job_everyday_to_remind_mentees
+  #   tomorrow = Date.today + 1
+  #   tomorrows_appointments = Appointment.where(:date_start_time => tomorrow.beginning_of_day..tomorrow.end_of_day)
+  #   send_email_to_mentees(tomorrows_appointments)
+  # end
 
   def non_nerd_time
     self.strftime("%A, %b, %d %Y %l:%M %p")
   end
 
+  def ungrabbed_appointments
+    @appointments = Appointment.all
+    @appointments.each do |appointment|
+      if appointment.date_start_time < Time.now && appointment.available == true
+        appointment.destroy
+      end
+    end    
+  end
 end

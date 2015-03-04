@@ -13,8 +13,8 @@
 #   rake "some:great:rake:task"
 # end
 #
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
-# end
+every :hour do
+  runner "Appointment.ungrabbed_appointments"
+end
 
 # Learn more: http://github.com/javan/whenever

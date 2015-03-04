@@ -61,9 +61,11 @@
         $scope.addName = "";
         $scope.addEmail = "";
         // console.log(addName, addEmail);
+          // $('#example-placeholder').html('<h4><p>Please wait while we update your information!</p></h4>');
+          // var t=setTimeout("$('#example-placeholder').load('index.html.eb');",9000); 
         var updatedAppointment = { mentee_name: (addName), mentee_email: (addEmail), available: false };
         $http.patch('/api/v1/appointments/' + (appointment.id) + '.json', {appointment: (updatedAppointment)}).then(function(response) {
-          alert("Thank you " + (updatedAppointment.mentee_name) + "! You're appointment is scheduled. If you need to cancel please click the cancel appointment link in your email or contact 1871.");   
+          alert("Thank you " + (updatedAppointment.mentee_name) + "! You're appointment is scheduled. If you need to cancel please click the cancel appointment link in your email or contact 1871."); 
         // $scope.greetingScheduled = "Thank you! You're appointment is scheduled. If you need to cancel please contact 1871";
         window.location.href= "/";
       }, function (error) {

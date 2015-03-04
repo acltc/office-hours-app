@@ -242,7 +242,7 @@ And from this seed of an idea came the inspiration for the name 1871. Like the G
       <div class="container">
         <!-- Footer Content -->
           <!-- Paragraph -->
-          <p class="pull-left">Copyright &copy; <%= Time.now.to_date %> - <a href="#">Your Site</a></p>
+          <p class="pull-left">Copyright &copy; <%= Time.now.to_date.strftime("%Y") %> - <a href="http://www.1871.com" target="_blank">1871</a></p>
             <!-- List -->
           <ul class="list-inline pull-right">
             <% if user_signed_in? %>

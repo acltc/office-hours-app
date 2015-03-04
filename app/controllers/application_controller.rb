@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
 
   def index
     @mentors = Mentor.all
-    
-    
+       
   end
-
 end

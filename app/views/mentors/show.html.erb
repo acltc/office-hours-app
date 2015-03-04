@@ -14,7 +14,6 @@
               <h4><%= @mentor.bio %></h4>      
             </div>
           </div> <!-- mentor bio -->
-
           <div class="col-md-4 col-sm-4 col-xs-12 bor">
             <div class="ui-item bg-black">
               <div>
@@ -45,9 +44,13 @@
                   <input type="text" name="addName" ng-model="addName" style="margin-left: 75px;" required/>
                   <h4>Enter Your Email Address:</h4>
                   <input type="text" name="addEmail" ng-model="addEmail" style="margin-left: 75px;"required/><br><br>
+                  <!-- <div id="example-placeholder">
+                    <p></p>
+                  </div> -->
                   <button ng-disable="frm.$invalid" style="margin-left: 105px;" ng-hide="!addName || !addEmail" >Submit</button>
                 </form> 
               </div>
+            <%= image_tag("ajax-loader.gif")%>
             </div> <!-- availabale appointments -->
 
             <% if user_signed_in? && current_user.admin? %>
