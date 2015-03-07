@@ -18,7 +18,6 @@
             <div class="ui-item bg-black">
               <div>
                 <button id="mentor-button"><h4><%= link_to 'Click to go Back to Mentors', mentors_path %></h4></button>
-                <h4>{{greeting}}</h4>
                 <!-- <h4>{{greetingScheduled}}</h4> -->
               </div>
 
@@ -34,9 +33,10 @@
                 <a href="#" class="b-tooltip" title="Twitter"><i class="fa fa-twitter"></i></a>  -->
               </div><!-- icon class -->
                 <h4><%= @mentor.full_name %>'s Available Appointments:<br>Please select the appointment you would like to schedule.</h4> 
+                <h4>{{greeting}}</h4>
 
                 <div ng-repeat="appointment in appointments" ng-click="selectAppointment(appointment)" required>                  
-                  <button class="appointmentButton" style="margin-left: 75px;" >{{appointment.date_start_time | date:'MMM d, y hh:mm a': 'UTC' }}<br>{{appointment.duration }} minutes<br></button>
+                  <button class="appointmentButton" >{{appointment.date_start_time | date:'MMM d, y hh:mm a': 'UTC' }}<br>{{appointment.duration }} minutes<br></button>
                 </div> <!-- ng-repeat  -->       
 
                 <form name="frm" ng-submit="enterInfo(addName, addEmail)">
@@ -44,15 +44,14 @@
                   <input type="text" name="addName" ng-model="addName" style="margin-left: 75px;" required/>
                   <h4>Enter Your Email Address:</h4>
                   <input type="text" name="addEmail" ng-model="addEmail" style="margin-left: 75px;"required/><br><br>
-                  <!-- <div id="example-placeholder">
-                    <p></p>
-                  </div> -->
                   <button ng-disable="frm.$invalid" style="margin-left: 105px;" ng-hide="!addName || !addEmail" >Submit</button>
+                  <div id="example-placeholder">
+                    <p></p>
+                  </div>
                 </form> 
               </div>
-            <%= image_tag("ajax-loader.gif")%>
+              <%= image_tag("ajax-loader.gif")%>
             </div> <!-- availabale appointments -->
-
             <% if user_signed_in? && current_user.admin? %>
             <div class="col-md-4 col-sm-4 col-xs-12 bor">
               <div class="ui-item bg-red">

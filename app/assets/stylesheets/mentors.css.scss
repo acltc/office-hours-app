@@ -1,5 +1,16 @@
-#loading-indicator{
-  position: absolute;
-  left: 10px;
-  top: 10px;
+
+.example-placeholder{
+  height:50px !important;
+  width:50px !important;
+}
+.appointmentButton{
+  margin-left:75px;
+  color: black;
+}
+.appointmentButton:hover{
+   background-color: #1AA798;
+    -webkit-animation: flash 1s;
+  -moz-animation: flash 1s;
+  -o-animation: flash 1s;
+  animation: flash 1s;
 }
