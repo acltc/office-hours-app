@@ -1,5 +1,5 @@
 User.create!([
-  {email: "admin@1871.com", encrypted_password: "$2a$10$SfkAjS.SJ7getlksC95hK.Aei66a/smL7dygJussxGcdp.avRJCTK", reset_password_token: "ad53b8b429b55be67a8d6e9c3254a1a4f053dc3ab259e7faf4d653f26603bcc5", reset_password_sent_at: "2015-03-02 00:22:40", remember_created_at: nil, sign_in_count: 21, current_sign_in_at: "2015-03-13 01:00:14", last_sign_in_at: "2015-03-09 23:51:56", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", admin: true}
+  {email: "admin@1871.com", encrypted_password: "$2a$10$SfkAjS.SJ7getlksC95hK.Aei66a/smL7dygJussxGcdp.avRJCTK", password: "password", password_confirmation: "password", reset_password_token: "ad53b8b429b55be67a8d6e9c3254a1a4f053dc3ab259e7faf4d653f26603bcc5", reset_password_sent_at: "2015-03-02 00:22:40", remember_created_at: nil, sign_in_count: 21, current_sign_in_at: "2015-03-13 01:00:14", last_sign_in_at: "2015-03-09 23:51:56", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", admin: true}
 ])
 Appointment.create!([
   {date_start_time: "2015-03-23 06:45:00", duration: 30, mentor_id: 1, mentee_name: "", mentee_email: "", available: true},
