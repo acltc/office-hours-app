@@ -46,6 +46,8 @@ class MentorsController < ApplicationController
 		@appointment_durations = [15, 30, 45, 60]
 		@break_times = [0, 5, 10, 15, 30]
 
+		@users = User.all
+
 	end
 
 	def new

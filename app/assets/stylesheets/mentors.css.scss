@@ -1,16 +1,22 @@
 
-.example-placeholder{
-  height:50px !important;
-  width:50px !important;
+#example-placeholder img{
+  height: 75px;
+width: 75px;
+margin-top: 10px;
+border: none;
+margin-left: 117px;
+  
 }
 .appointmentButton{
   margin-left:75px;
   color: black;
 }
 .appointmentButton:hover{
-   background-color: #1AA798;
     -webkit-animation: flash 1s;
   -moz-animation: flash 1s;
   -o-animation: flash 1s;
   animation: flash 1s;
+}
+.addNameAddress{
+  margin-left: 75px;
 }

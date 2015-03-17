@@ -183,7 +183,6 @@ And from this seed of an idea came the inspiration for the name 1871. Like the G
                   <li><a href="http://www.1871.com/blog/" target="_blank">1871 Blog</a></li>
                   <li><a href="http://www.1871.com/video-library/" target="_blank">1871 Video Library</a></li>
                   <li><a href="http://www.1871.com/" target="_blank">1871 Website</a></li>
-                  <li><a href="http://www.1871.com/logo-gallery" target="_blank">Logo Gallery</a></li>
                   <li><a href="http://www.1871.com/join-us/" target="_blank">Join 1871</a></li>
                 </ul>
               </div>
@@ -193,7 +192,7 @@ And from this seed of an idea came the inspiration for the name 1871. Like the G
             <!-- Foot Item -->
             <div class="foot-item">
               <!-- Heading -->
-              <h5 class="bold"><i class="fa fa-picture-o"></i>&nbsp;&nbsp;Logo Images</h5>
+              <h5 class="bold"><i class="fa fa-picture-o"></i>&nbsp;&nbsp;Images</h5>
               <!-- Foot Item Content -->
               <div class="foot-item-content">
                 <!-- Foot Recent Image --> 
@@ -202,10 +201,15 @@ And from this seed of an idea came the inspiration for the name 1871. Like the G
                 </div>
                 <!-- Foot Recent Image --> 
                 <div class="foot-recent-img">
-                  <a href="/assets/gallery/small/logo.png" class="lightbox"><img src="/assets/gallery/small/logo.png" alt="" class="img-responsive img-thumbnail" /></a>
+                  <a href="/assets/1871-background.png" class="lightbox"><img src="/assets/1871-background.png" alt="" class="img-responsive img-thumbnail" /></a>
                 </div>
                 <div class="foot-recent-img">
-                  <a href="/assets/gallery/small/logo.png" class="lightbox"><img src="/assets/gallery/small/logo.png" alt="" class="img-responsive img-thumbnail" /></a>
+                  <a href="/assets/1871-bg-2.png" class="lightbox"><img src="/assets/1871-bg-2.png" alt="" class="img-responsive img-thumbnail" /></a>
+                </div>
+                <div class="foot-recent-img">
+                  <ul class="list-unstyled">
+                    <li><a href="http://www.1871.com/behind-the-brand/logo-gallery/" target="blank">Logo Gallery</a></li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -242,7 +246,7 @@ And from this seed of an idea came the inspiration for the name 1871. Like the G
       <div class="container">
         <!-- Footer Content -->
           <!-- Paragraph -->
-          <p class="pull-left">Copyright &copy; <%= Time.now.to_date.strftime("%Y") %> - <a href="http://www.1871.com" target="_blank">1871</a></p>
+          <p class="pull-left">Copyright &copy; <%= Time.new.year %> - <a href="http://www.1871.com" target="_blank">1871.com</a></p>
             <!-- List -->
           <ul class="list-inline pull-right">
             <% if user_signed_in? %>
