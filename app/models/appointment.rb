@@ -14,10 +14,10 @@ class Appointment < ActiveRecord::Base
     self.strftime("%A, %b, %d %Y %l:%M %p")
   end
 
-  def ungrabbed_appointments
+  def self.ungrabbed_appointments
     @appointments = Appointment.all
     @appointments.each do |appointment|
-      if appointment.date_start_time < Time.now && appointment.available == true
+      if appointment.date_start_time < Time.now && appointment.available
         appointment.destroy
       end
     end    
