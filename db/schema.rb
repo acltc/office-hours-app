@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150126190116) do
     t.boolean  "available",       default: true
   end
 
+  add_index "appointments", ["available", "date_start_time"], name: "available", using: :btree
+
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
